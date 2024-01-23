@@ -4,10 +4,74 @@
 {% block content %}
 <section class="loc-section" style="background-image: url('{% get_media_prefix %}locbackground.jpg');">
     <div class="container text-center">
-        <h1 class="display-4 text-white">Location</h1>
-        <p class="lead text-red"> <strong> Disclaimer: </strong> <em>The location displayed on this website is for demonstration purposes only and is not accurate. It is part of a sample project created for educational purposes at the Code Institute. The information shown here is fictional and should not be considered as real-world data. Thank you for your understanding.  </em>
+        <h1 class="display-4 text-white my-5">Location</h1>
+        <p class="text-white">
+            <strong> Disclaimer: </strong>
+            <em>
+                The location displayed on this website is for demonstration purposes only and is not accurate. It is part of a sample project created for educational purposes at the Code Institute. The information shown here is fictional and should not be considered as real-world data. Thank you for your understanding.
+            </em>
         </p>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2384.5163641877193!2d-6.181225522785302!3d53.298198072275454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48670e99733f3617%3A0x7ff7202fe3dea603!2sCode%20Institute!5e0!3m2!1sen!2suk!4v1706046908559!5m2!1sen!2suk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2384.5163641877193!2d-6.181225522785302!3d53.298198072275454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48670e99733f3617%3A0x7ff7202fe3dea603!2sCode%20Institute!5e0!3m2!1sen!2suk!4v1706046908559!5m2!1sen!2suk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-6 mt-4">
+                <div class="workingtimes">
+                    <table class="table table-bordered table-light">
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th>Opening Time</th>
+                                <th>Closing Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Monday</td>
+                                <td>09:00</td>
+                                <td>22:00</td>
+                            </tr>
+                            <tr>
+                                <td>Tuesday</td>
+                                <td>09:00</td>
+                                <td>22:00</td>
+                            </tr>
+                            <tr>
+                                <td>Wednesday</td>
+                                <td>09:00</td>
+                                <td>22:00</td>
+                            </tr>
+                            <tr>
+                                <td>Thursday</td>
+                                <td>09:00</td>
+                                <td>22:00</td>
+                            </tr>
+                            <tr>
+                                <td>Friday</td>
+                                <td>09:00</td>
+                                <td>22:00</td>
+                            </tr>
+                            <tr>
+                                <td>Saturday</td>
+                                <td>10:00</td>
+                                <td>20:00</td>
+                            </tr>
+                            <tr>
+                                <td>Sunday</td>
+                                <td>10:00</td>
+                                <td>20:00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
+
+
 {% endblock %}

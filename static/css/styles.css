@@ -7,12 +7,15 @@ html {
 body {
     margin: 0;
     font-family: 'Onest', sans-serif;
+    padding-top: 70px; 
 }
 
 .navbar {
     margin-bottom: 20px;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
 }
-
 
 .container-fluid {
     padding-right: 0;
@@ -65,8 +68,9 @@ body {
     }
 }
 
-.home-section {
-    height: 100vh;
+.home-section,
+.loc-section {
+    min-height: 100vh;
     background-size: cover;
     background-position: center;
     display: flex;
@@ -79,20 +83,16 @@ body {
     animation: fadeIn 1s ease-out; 
 }
 
-.loc-section {
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    color: #fff;
-    text-shadow: 2px 2px 4px rgb(0, 0, 0); 
-    transition: color 0.5s ease;
-    animation: fadeIn 1s ease-out; 
+.workingtimes {
+    width: 100%;
+    max-width: 600px; 
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); 
+    box-shadow: 0 4px 6px -6px #222;
+    border-radius: 10px;
 }
 
 .map-section {
-
+   
 }
