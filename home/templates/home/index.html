@@ -2,5 +2,11 @@
 {% load static %}
    
 {% block content %}
-<h1>INDEX.HTML</h1>
+    <section class="home-section" style="background-image: url('{% get_media_prefix %}backgroundhome.jpg');">
+        <div class="container text-center">
+            <h1 class="display-4 text-white">Change Your Life</h1>
+            <p class="lead text-white">Join now and embark on a journey to a healthier, happier you.</p>
+            <a href="#" class="btn btn-primary btn-lg">Join Now!</a>
+        </div>
+    </section>
 {% endblock %}
