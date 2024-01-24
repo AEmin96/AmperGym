@@ -166,6 +166,17 @@ body {
     border: 2px solid black;
 }
 
+.formsbck {
+    min-height: 100vh;
+    background-image: url(../../media/formbck.jpg);
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+    position: relative;
+    animation: fadeIn 1s ease-out;
+}
+
+
 
 @media (max-width: 767px) {
     .embed-responsive-16by9 {
