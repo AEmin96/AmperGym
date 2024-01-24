@@ -68,6 +68,7 @@ body {
     }
 }
 
+
 .home-section,
 .loc-section {
     min-height: 100vh;
@@ -113,4 +114,11 @@ body {
     background-color: #6c757d;
     color: #ffffff;
     border: 2px solid black;
+}
+
+
+@media (max-width: 767px) {
+    .embed-responsive-16by9 {
+        padding-bottom: 150%;
+    }
 }
