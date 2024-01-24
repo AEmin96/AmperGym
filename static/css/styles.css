@@ -83,16 +83,23 @@ body {
     animation: fadeIn 1s ease-out; 
 }
 
-.workingtimes {
+.loc-section table.table {
     width: 100%;
-    max-width: 600px; 
-    margin: 0 auto;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.8); 
-    box-shadow: 0 4px 6px -6px #222;
-    border-radius: 10px;
+    border-collapse: collapse;
+    border: 1px solid #dee2e6;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    text-shadow: none;
 }
 
-.map-section {
-   
+.loc-section table.table th, .loc-section table.table td {
+    padding: 8px;
+    text-align: left;
+    border: 2px solid black;
+}
+
+.loc-section table.table th {
+    background-color: #6c757d;
+    color: #ffffff;
+    border: 2px solid black;
 }
