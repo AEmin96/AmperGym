@@ -2,17 +2,19 @@
 {% load static %}
    
 {% block content %}
+<div class="aboutusbck"  style="background-image: url('{% get_media_prefix %}aboutusbackground.jpg')">
 <div class="container about-us-section">
    <div class="jumbotron">
        <h1 class="display-4 text-center">About Us</h1>
        <p class="lead">AmperGym is the 5th project created by Ahmed Emin during the Code Institute Full Stack
            Developer program. This project serves as a showcase for the application of Django and full-stack
            development techniques.</p>
-       <hr class="my-4">
+       <hr class="my-5">
        <p>This website is the result of dedicated work in demonstrating the usage of Django and a full-stack toolkit.
            It was crafted with a passion for coding and a commitment to delivering a seamless user experience.</p>
        <p>The key features of AmperGym include user account creation, subscription management, and the ability to
            write and delete testimonials. </p>
    </div>
+</div>
 </div>
 {% endblock %}
