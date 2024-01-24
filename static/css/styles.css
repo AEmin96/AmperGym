@@ -111,9 +111,6 @@ body {
     margin-bottom: 0; 
 }
 
-.fa-lg {
-    font-size: 20em;
-}
 
 .loc-section::before {
     content: "";
