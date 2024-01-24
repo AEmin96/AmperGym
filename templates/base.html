@@ -56,8 +56,16 @@
                     <li class="nav-item">
                         <a class="nav-link nav-link-item" href="{% url 'aboutus' %}">ABOUT US</a>
                     </li>
-                    <li class="nav-item nav-link-item">
-                        <a class="nav-link" href="#">MEMBERS</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="membersDropdown" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            MEMBERS
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="membersDropdown">
+                            <a class="dropdown-item" href="#">Sign In</a>
+                            <a class="dropdown-item" href="#">Become a Member</a>
+                            <a class="dropdown-item" href="#">Subscriptions</a>
+                        </div>
                     </li>
                 </ul>
             </div>

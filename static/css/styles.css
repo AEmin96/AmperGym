@@ -59,6 +59,14 @@ body {
     box-shadow: 0 4px 6px -6px #222;
 }
 
+.navbar-nav .dropdown-menu {
+    font-size: 14px; 
+}
+
+.navbar-nav .dropdown-item {
+    padding: 5px 10px;
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
