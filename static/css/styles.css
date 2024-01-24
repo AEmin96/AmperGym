@@ -83,6 +83,17 @@ body {
     animation: fadeIn 1s ease-out; 
 }
 
+.embed-responsive {
+    border: 2px solid #030303; 
+    border-radius: 0px; 
+    overflow: hidden; 
+}
+
+.embed-responsive iframe {
+    border: none; 
+}
+
+
 .loc-section table.table {
     width: 100%;
     border-collapse: collapse;
