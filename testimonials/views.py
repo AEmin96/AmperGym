@@ -20,12 +20,14 @@ def add_testimonial_view(request):
 def testimonial_list_view(request):
     rating_filter = request.GET.get('rating', None)
 
-
+    # Retrieve all testimonials or filter by star rating
     if rating_filter:
         testimonials = Testimonial.objects.filter(rating=rating_filter)
     else:
         testimonials = Testimonial.objects.all()
 
+    # Order testimonials by the newest posted date and time
+    testimonials = testimonials.order_by('-created_at')
 
     for testimonial in testimonials:
         testimonial.filled_stars = range(testimonial.rating)
