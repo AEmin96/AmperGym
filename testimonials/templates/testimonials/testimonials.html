@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="aboutusbck" style="background-image: url('{% get_media_prefix %}aboutusbackground.jpg')">
+    <div class="jumbotron text-center">
+        <h1 class="display-4">Testimonials</h1>
+        <p class="lead">See what our customers are saying about us!</p>
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <form method="get" action="{% url 'add_testimonial' %}">
+                        <button type="submit" class="btn btn-primary">Write Your Testimonial Here</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Write Your Testimonial Form -->
+   
+
+    <!-- List of Testimonials -->
+    <div class="container">
+        <div class="row">
+            {% for testimonial in testimonials %}
+                <div class="col-md-6">
+                    <div class="card my-3">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ testimonial.name }}</h5>
+                            <p class="card-text">{{ testimonial.content }}</p>
+                            <p class="card-text">Rating: 
+                                {% for _ in testimonial.filled_stars %}
+                                    <i class="fas fa-star text-warning"></i>
+                                {% endfor %}
+                                {% for _ in testimonial.empty_stars %}
+                                    <i class="far fa-star text-muted"></i>
+                                {% endfor %}
+                            </p>
+                            <p class="card-text"><small class="text-muted">{{ testimonial.created_at }}</small></p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -10,6 +10,3 @@ def aboutus(request):
 
 def location(request):
     return render(request, 'home/location.html')
-
-def testimonials(request):
-    return render(request, 'home/testimonials.html')
