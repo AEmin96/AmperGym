@@ -18,7 +18,13 @@ def add_testimonial_view(request):
     return render(request, 'testimonials/add_testimonial.html', {'form': form})
 
 def testimonial_list_view(request):
-    testimonials = Testimonial.objects.all()
+    rating_filter = request.GET.get('rating', None)
+
+
+    if rating_filter:
+        testimonials = Testimonial.objects.filter(rating=rating_filter)
+    else:
+        testimonials = Testimonial.objects.all()
 
 
     for testimonial in testimonials:
