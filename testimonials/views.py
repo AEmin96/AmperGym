@@ -11,7 +11,7 @@ def add_testimonial_view(request):
         form = TestimonialForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('testimonial')
+            return redirect('testimonials')
     else:
         form = TestimonialForm()
 
