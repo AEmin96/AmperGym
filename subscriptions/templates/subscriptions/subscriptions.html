@@ -1,24 +1,54 @@
 {% extends "base.html" %}
 {% load static %}
-   
+
 {% block content %}
-<div class="aboutusbck"  style="background-image: url('{% get_media_prefix %}aboutusbackground.jpg')">
-<div class="container about-us-section">
-   <div class="jumbotron">
-       <h1 class="display-4 text-center">Subscriptions</h1>
-       <p class="lead">AmperGym is the 5th project created by Ahmed Emin during the Code Institute Full Stack
-           Developer program. This project serves as a showcase for the application of Django and full-stack
-           development techniques.</p>
-       <hr class="my-5">
-       <p>This website is the result of dedicated work in demonstrating the usage of Django and a full-stack toolkit.
-           It was crafted with a passion for coding and a commitment to delivering a seamless user experience.</p>
-       <p>The key features of AmperGym include user account creation, subscription management, and the ability to
-           write and delete testimonials. </p>
-         <hr class="my-5">
-         <h1 class="display-4 text-center">Credits</h1>
-         <p> Background Video : <a href="https://www.pexels.com/@cottonbro/" target="_blank" class="text-black mr-3"> @cottonbro </a> </p>
-         <p> Background Images : <a href="https://www.pexels.com/@goumbik" target="_blank" class="text-black mr-3"> @goumbik</a> </p>
-   </div>
-</div>
+<div class="aboutusbck" style="background-image: url('{% get_media_prefix %}aboutusbackground.jpg')">
+    <div class="container about-us-section">
+        <div class="jumbotron">
+            <h1 class="display-4 text-center">Subscriptions</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <i class="fas fa-dumbbell fa-5x mb-3"></i>
+                        <h5 class="card-title">Basic Subscription</h5>
+                        <p class="card-text">Access to basic gym facilities</p>
+                        <p class="card-text">Personalized workout plans</p>
+                        <p class="card-text">£14.99/month</p>
+                        <a href="#" class="btn btn-primary">Subscribe</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <i class="fas fa-heartbeat fa-5x mb-3"></i>
+                        <h5 class="card-title">Premium Subscription</h5>
+                        <p class="card-text">Full access to gym and premium facilities</p>
+                        <p class="card-text">Exclusive fitness classes</p>
+                        <p class="card-text">£24.99/month</p>
+                        <a href="#" class="btn btn-primary">Subscribe</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <i class="fas fa-star fa-5x mb-3"></i>
+                        <h5 class="card-title">Elite Subscription</h5>
+                        <p class="card-text">VIP access to all gym facilities</p>
+                        <p class="card-text">Personal trainer sessions</p>
+                        <p class="card-text">£34.99/month</p>
+                        <a href="#" class="btn btn-primary">Subscribe</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
