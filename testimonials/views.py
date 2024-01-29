@@ -20,7 +20,6 @@ def add_testimonial_view(request):
 def testimonial_list_view(request):
     rating_filter = request.GET.get('rating', None)
 
-    # Retrieve all testimonials or filter by star rating
     if rating_filter:
         testimonials = Testimonial.objects.filter(rating=rating_filter)
     else:
