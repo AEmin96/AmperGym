@@ -40,10 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.sessions',
     'django.contrib.staticfiles',
+    'djstripe',
     'home',
     'testimonials',
     'subscriptions',
     'checkout',
+    ''
 ]
 
 MIDDLEWARE = [
@@ -158,3 +160,14 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+DJSTRIPE_FOREIGN_KEY_TO_FIELD = "id"
+DJSTRIPE_WEBHOOK_VALIDATION = 'retrieve_event'
+DJSTRIPE_WEBHOOK_SECRET = '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'
+
+STRIPE_TEST_PUBLIC_KEY = 'pk_live_51OeDfNHcbPs5lobJhCwdNKUUs7IeLUtqkJuKx8Na81dRQQSFXrMeHTUcdppoYvaXsBcti7v4NwBCTSWqAaudNXAb00J41vX203'
+STRIPE_TEST_SECRET_KEY = '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'
+STRIPE_LIVE_MODE = False 
+
+STRIPE_PUBLIC_KEY = STRIPE_TEST_PUBLIC_KEY
+STRIPE_SECRET_KEY = STRIPE_TEST_SECRET_KEY
