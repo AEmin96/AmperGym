@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'testimonials',
     'subscriptions',
     'checkout',
-    ''
 ]
 
 MIDDLEWARE = [
@@ -66,6 +65,7 @@ TEMPLATES = [
         'DIRS': [
             os.path.join(BASE_DIR, 'templates'),
             os.path.join(BASE_DIR, 'templates', 'allauth'),
+            os.path.join(BASE_DIR, 'templates', 'checkout'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -163,10 +163,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 DJSTRIPE_FOREIGN_KEY_TO_FIELD = "id"
 DJSTRIPE_WEBHOOK_VALIDATION = 'retrieve_event'
-DJSTRIPE_WEBHOOK_SECRET = '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'
+DJSTRIPE_WEBHOOK_SECRET = 'sk_test_51OeDfNHcbPs5lobJe9n1vVqPQvyOKA0R6P7SHnLSFFMPHZSbIxl1LoOmZkwkEuhC698OTHOdCRhd6Hp0baPreiSv00aNLA6fjM'
 
-STRIPE_TEST_PUBLIC_KEY = 'pk_live_51OeDfNHcbPs5lobJhCwdNKUUs7IeLUtqkJuKx8Na81dRQQSFXrMeHTUcdppoYvaXsBcti7v4NwBCTSWqAaudNXAb00J41vX203'
-STRIPE_TEST_SECRET_KEY = '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'
+STRIPE_TEST_PUBLIC_KEY = 'pk_test_51OeDfNHcbPs5lobJunylRC1TZ38Y0BYIvyI1kDW2WhSfNAjkbouoZVhW9c3LoIuToh1o4aTHehu69nONmQsE7S3b00puKku9eD'
+STRIPE_TEST_SECRET_KEY = 'sk_test_51OeDfNHcbPs5lobJe9n1vVqPQvyOKA0R6P7SHnLSFFMPHZSbIxl1LoOmZkwkEuhC698OTHOdCRhd6Hp0baPreiSv00aNLA6fjM'
 STRIPE_LIVE_MODE = False 
 
 STRIPE_PUBLIC_KEY = STRIPE_TEST_PUBLIC_KEY

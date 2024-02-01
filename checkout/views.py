@@ -1,45 +1,35 @@
 from django.shortcuts import render
-from django.http import JsonResponse, HttpResponseBadRequest
-from django.views.decorators.csrf import csrf_exempt
+from django.views import View
+from django.conf import settings
+from django.http import JsonResponse
 from django.views.decorators.http import require_POST
+from django.views.decorators.csrf import csrf_exempt
+import json
 import stripe
+from django.conf import settings
 
-# Create your views here.
-stripe.api_key = 'pk_live_51OeDfNHcbPs5lobJhCwdNKUUs7IeLUtqkJuKx8Na81dRQQSFXrMeHTUcdppoYvaXsBcti7v4NwBCTSWqAaudNXAb00J41vX203'
 
-YOUR_DOMAIN = 'http://localhost:4242'
+class PaymentFormView(View):
+    def get(self, request, *args, **kwargs):
+        context = {
+            'stripe_public_key': settings.STRIPE_PUBLIC_KEY
+        }
+        return render(request, 'payment_form.html', context)
 
-@require_POST
+
+
 @csrf_exempt
-def create_checkout_session(request):
+@require_POST
+def process_payment(request):
+    stripe.api_key = settings.STRIPE_SECRET_KEY
+    data = json.loads(request.body)
     try:
-        session = stripe.checkout.Session.create(
-            payment_method_types=['card'],
-            line_items=[
-                {
-                    'price': 'price_1OeDyRHcbPs5lobJBsK84xoq',
-                    'quantity': 1,
-                },
-            ],
-            mode='payment',
-            success_url=YOUR_DOMAIN + '/return.html?session_id={CHECKOUT_SESSION_ID}',
-            cancel_url=YOUR_DOMAIN + '/cancel.html',
-            automatic_tax={'enabled': True},
+        charge = stripe.Charge.create(
+            amount=1000,  # amount in cents
+            currency="usd",
+            description="Example charge",
+            source=data['stripeToken'],  # obtained with Stripe.js
         )
+        return JsonResponse({"message": "Successfully charged"})
     except Exception as e:
-        return HttpResponseBadRequest(str(e))
-
-    return JsonResponse({'clientSecret': session.client_secret})
-
-def session_status(request):
-    session_id = request.GET.get('session_id')
-    if not session_id:
-        return HttpResponseBadRequest("Missing session_id parameter")
-
-    try:
-        session = stripe.checkout.Session.retrieve(session_id)
-        status = session.status
-        customer_email = session.customer_details.email
-        return JsonResponse({'status': status, 'customer_email': customer_email})
-    except stripe.error.InvalidRequestError as e:
-        return HttpResponseBadRequest(str(e))
+        return JsonResponse({"error": str(e)}, status=400)

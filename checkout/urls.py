@@ -1,7 +1,9 @@
 from django.urls import path
-from .views import create_checkout_session, session_status
+from .views import PaymentFormView
+from .views import process_payment
 
 urlpatterns = [
-    path('create-checkout-session/', create_checkout_session, name='create_checkout_session'),
-    path('session-status/', session_status, name='session_status'),
+    path('create-checkout-session/', PaymentFormView.as_view(), name='create-checkout-session'),
+    path('process-payment/', process_payment, name='process-payment'),
+
 ]
