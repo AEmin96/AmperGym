@@ -51,4 +51,31 @@
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function(){
+    $(".btn-primary").click(function(){
+        var subscriptionName = $(this).attr("data-subscription-name");
+        var subscriptionPrice = $(this).attr("data-subscription-price"); 
+        $.ajax({
+            url: '/path/to/subscribe/', 
+            type: 'POST',
+            data: {
+                'subscriptionName': subscriptionName,
+                'subscriptionPrice': subscriptionPrice,
+                'csrfmiddlewaretoken': '{{ csrf_token }}' // Include CSRF token
+            },
+            success: function(response) {
+                alert(response.message); // Alert success message
+            },
+            error: function(xhr, errmsg, err) {
+                // Handle error
+                console.log(xhr.status + ": " + xhr.responseText);
+            }
+        });
+    });
+});
+    
+
+</script>
+
 {% endblock %}
