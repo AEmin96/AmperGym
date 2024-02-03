@@ -17,7 +17,7 @@
                         <p class="card-text">Access to basic gym facilities</p>
                         <p class="card-text">Personalized workout plans</p>
                         <p class="card-text">£14.99/month</p>
-                        <a href="#" class="btn btn-primary">Subscribe</a>
+                        <a href="{% url 'create-checkout-session' %}?type=BA" class="btn btn-primary">Subscribe</a>
                     </div>
                 </div>
             </div>
@@ -31,7 +31,7 @@
                         <p class="card-text">Full access to gym and premium facilities</p>
                         <p class="card-text">Exclusive fitness classes</p>
                         <p class="card-text">£24.99/month</p>
-                        <a href="#" class="btn btn-primary">Subscribe</a>
+                        <a href="{% url 'create-checkout-session' %}?type=PR" class="btn btn-primary">Subscribe</a>
                     </div>
                 </div>
             </div>
@@ -44,37 +44,11 @@
                         <p class="card-text">VIP access to all gym facilities</p>
                         <p class="card-text">Personal trainer sessions</p>
                         <p class="card-text">£34.99/month</p>
-                        <a href="#" class="btn btn-primary">Subscribe</a>
+                        <a href="{% url 'create-checkout-session' %}?type=EL" class="btn btn-primary">Subscribe</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<script>
-    $(document).ready(function(){
-    $(".btn-primary").click(function(){
-        var subscriptionName = $(this).attr("data-subscription-name");
-        var subscriptionPrice = $(this).attr("data-subscription-price"); 
-        $.ajax({
-            url: "{% url 'subscribe' %}", 
-            type: 'POST',
-            data: {
-                'subscriptionName': subscriptionName,
-                'subscriptionPrice': subscriptionPrice,
-            },
-            success: function(response) {
-                alert(response.message); // Alert success message
-            },
-            error: function(xhr, errmsg, err) {
-                // Handle error
-                console.log(xhr.status + ": " + xhr.responseText);
-            }
-        });
-    });
-});
-    
-
-</script>
-
 {% endblock %}
