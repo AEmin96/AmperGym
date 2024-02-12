@@ -1,169 +1,127 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secure Payment</title>
-    <script src="https://js.stripe.com/v3/"></script>
-    <style>
-        body, html {
-            height: 100%;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #f0f2f5;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        }
-        #card-element{
-            width: 550px;
-        }
-        .payment-form {
-            width: 100%;
-            max-width: 600px;
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.1);
-        }
-        .form-title {
-            font-size: 24px;
-            font-weight: 300;
-            margin-bottom: 20px;
-            text-align: center;
-            color: #32325d;
-        }
-        .StripeElement {
-            height: 50px;
-            padding: 15px 12px;
-            border: 1px solid #ccd0d5;
-            border-radius: 8px;
-            background-color: white;
-            box-sizing: border-box;
-            display: block;
-            width: 100%;
-            margin-bottom: 20px;
-            font-size: 16px;
-        }
-        .StripeElement--focus {
-            border-color: #80b9f9;
-        }
-        .StripeElement--invalid {
-            border-color: #fa755a;
-        }
-        .StripeElement--webkit-autofill {
-            background-color: #fefde5 !important;
-        }
-        #card-errors {
-            color: #fa755a;
-            margin-top: 10px;
-            text-align: center;
-            font-size: 14px;
-        }
-        button {
-            background-color: #556cd6;
-            color: white;
-            border: none;
-            padding: 12px;
-            margin-top: 20px;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            display: block;
-            width: 100%;
-            transition: background-color 0.2s ease;
-        }
-        button:hover {
-            background-color: #43458b;
-        }
-    </style>
-</head>
-<body>
-    <div class="payment-form">
-        <div class="form-title">Complete Your Payment</div>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <link rel="stylesheet" href="{% static 'css/payment_form.css' %}" />
+
+  <div class="container">
+    <div class="content-wrapper">
+      <div id="price-display" class="price-container">
+        <h3>{{ subscription.subscription_title }}</h3>
+        <p>{{ subscription.subscription_desc }}</p>
+        <h3>Amount to Pay: {{ subscription.subscription_price }}</h3>
+      </div>
+      <div class="payment-form">
+        <div class="form-title">Pay with card</div>
         <form id="payment-form">
-            <div id="card-element">
-            </div>
-            <div id="card-errors" role="alert"></div>
-            <button type="submit">Pay Now</button>
+          <input type="email" id="email" class="StripeElement" placeholder="Email Address" required />
+          <div id="card-element">
+            <!-- A Stripe Element will be inserted here. -->
+          </div>
+          <div id="card-errors" role="alert"></div>
+          <input type="text" id="cardholder_name" class="StripeElement" placeholder="Cardholder name" required />
+          {% include 'country_list.html' %}
+          <input type="text" id="zip" class="StripeElement" placeholder="ZIP" required />
+
+          <input type="hidden" id="amount" name="amount" value="{{ subscription.subscription_price }}" /> <!-- Ensure you have the amount in cents -->
+          <input type="hidden" id="subscription_id" name="subscription_id" value="{{ subscription.id }}" />
+
+          <button type="submit">Pay Now</button>
         </form>
+      </div>
     </div>
-
-    <script>
-        var stripe = Stripe('{{ stripe_public_key }}'); 
-        var elements = stripe.elements();
-        var style = {
-            base: {
-                color: '#32325d',
-                fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
-                fontSmoothing: 'antialiased',
-                fontSize: '16px',
-                '::placeholder': {
-                    color: '#aab7c4'
-                }
+  </div>
+  <script>
+    var stripe = Stripe('{{ stripe_public_key }}')
+    var elements = stripe.elements()
+    var style = {
+      base: {
+        color: '#32325d',
+        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+        fontSmoothing: 'antialiased',
+        fontSize: '16px',
+        '::placeholder': {
+          color: '#aab7c4'
+        }
+      },
+      invalid: {
+        color: '#fa755a',
+        iconColor: '#fa755a'
+      }
+    }
+    var card = elements.create('card', { style: style })
+    card.mount('#card-element')
+    
+    var form = document.getElementById('payment-form')
+    form.addEventListener('submit', function (event) {
+      event.preventDefault()
+      stripe.createToken(card).then(function (result) {
+        if (result.error) {
+          var errorElement = document.getElementById('card-errors')
+          errorElement.textContent = result.error.message
+        } else {
+          stripeTokenHandler(result.token)
+        }
+      })
+    })
+    
+    function stripeTokenHandler(token) {
+        // Retrieve the amount, ensuring it's parsed as an integer
+        var amountInput = document.getElementById('amount').value; // This should be in cents
+        var amount = parseInt(amountInput, 10); // Convert to integer
+    
+        // Ensure amount is not NaN and is a positive integer
+        if (isNaN(amount) || amount <= 0) {
+            console.error("Invalid amount.");
+            return; // Optionally, update the UI to inform the user
+        }
+    
+        var subscriptionId = document.getElementById('subscription_id').value;
+    
+        fetch('/checkout/process-payment/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': getCookie('csrftoken'),
             },
-            invalid: {
-                color: '#fa755a',
-                iconColor: '#fa755a'
+            body: JSON.stringify({
+                stripeToken: token.id,
+                amount: amount, // Use the validated and parsed amount
+                subscription_id: subscriptionId,
+            })
+        })
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            if (data.error) {
+                var errorElement = document.getElementById('card-errors');
+                errorElement.textContent = data.error;
+            } else {
+                alert('Payment successful!');
+                // Redirect or update UI here
             }
-        };
-        var card = elements.create('card', {style: style});
-        card.mount('#card-element');
-
-        var form = document.getElementById('payment-form');
-        form.addEventListener('submit', function(event) {
-            event.preventDefault();
-            stripe.createToken(card).then(function(result) {
-                if (result.error) {
-                    var errorElement = document.getElementById('card-errors');
-                    errorElement.textContent = result.error.message;
-                } else {
-                    stripeTokenHandler(result.token);
-                }
-            });
+        })
+        .catch(function (error) {
+            console.error('Error:', error);
         });
-
-        function stripeTokenHandler(token) {
-            fetch('/checkout/process-payment/', { 
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRFToken': getCookie('csrftoken'), 
-                },
-                body: JSON.stringify({
-                    stripeToken: token.id
-                })
-            }).then(function(response) {
-                return response.json();
-            }).then(function(data) {
-                if (data.error) {
-                    var errorElement = document.getElementById('card-errors');
-                    errorElement.textContent = data.error;
-                } else {
-                    alert('Payment successful!');
-                }
-            }).catch(function(error) {
-                console.error('Error:', error);
-            });
+    }
+    
+    
+    // Helper function to get CSRF token value
+    function getCookie(name) {
+      let cookieValue = null
+      if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';')
+        for (let i = 0; i < cookies.length; i++) {
+          const cookie = cookies[i].trim()
+          if (cookie.substring(0, name.length + 1) === name + '=') {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1))
+            break
+          }
         }
-        
-        // Helper function to get CSRF token value
-        function getCookie(name) {
-            let cookieValue = null;
-            if (document.cookie && document.cookie !== '') {
-                const cookies = document.cookie.split(';');
-                for (let i = 0; i < cookies.length; i++) {
-                    const cookie = cookies[i].trim();
-                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                        break;
-                    }
-                }
-            }
-            return cookieValue;
-        }
-        
-    </script>
-</body>
-</html>
+      }
+      return cookieValue
+    }
+  </script>
+{% endblock %}
