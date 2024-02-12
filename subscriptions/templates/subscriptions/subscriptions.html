@@ -9,45 +9,30 @@
         </div>
 
         <div class="row">
-            <div class="col-md-4">
-                <div class="card text-center">
-                    <div class="card-body">
-                        <i class="fas fa-dumbbell fa-5x mb-3"></i>
-                        <h5 class="card-title">Basic Subscription</h5>
-                        <p class="card-text">Access to basic gym facilities</p>
-                        <p class="card-text">Personalized workout plans</p>
-                        <p class="card-text">£14.99/month</p>
-                        <a href="{% url 'create-checkout-session' %}?type=BA" class="btn btn-primary">Subscribe</a>
+            {% for subscription in subscriptions %}
+                <div class="col-md-4">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <!-- Placeholder for icons, assign based on subscription type -->
+                            {% if subscription.subscription_type == 'BA' %}
+                                <i class="fas fa-dumbbell fa-5x mb-3"></i>
+                            {% elif subscription.subscription_type == 'PR' %}
+                                <i class="fas fa-heartbeat fa-5x mb-3"></i>
+                            {% elif subscription.subscription_type == 'EL' %}
+                                <i class="fas fa-star fa-5x mb-3"></i>
+                            {% endif %}
+                            <h5 class="card-title">{{ subscription.subscription_title }}</h5>
+                            <p class="card-text">{{ subscription.subscription_desc }}</p>
+                            <p class="card-text">£{{ subscription.subscription_price }}/month</p>
+                            {% if subscription.subscription_type == current_subscription %}
+                                <button class="btn btn-secondary" disabled>Subscribed</button>
+                            {% else %}
+                                <a href="{% url 'create-checkout-session' %}?type={{ subscription.subscription_type }}" class="btn btn-primary">Subscribe</a>
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
-            </div>
-
-
-            <div class="col-md-4">
-                <div class="card text-center">
-                    <div class="card-body">
-                        <i class="fas fa-heartbeat fa-5x mb-3"></i>
-                        <h5 class="card-title">Premium Subscription</h5>
-                        <p class="card-text">Full access to gym and premium facilities</p>
-                        <p class="card-text">Exclusive fitness classes</p>
-                        <p class="card-text">£24.99/month</p>
-                        <a href="{% url 'create-checkout-session' %}?type=PR" class="btn btn-primary">Subscribe</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="card text-center">
-                    <div class="card-body">
-                        <i class="fas fa-star fa-5x mb-3"></i>
-                        <h5 class="card-title">Elite Subscription</h5>
-                        <p class="card-text">VIP access to all gym facilities</p>
-                        <p class="card-text">Personal trainer sessions</p>
-                        <p class="card-text">£34.99/month</p>
-                        <a href="{% url 'create-checkout-session' %}?type=EL" class="btn btn-primary">Subscribe</a>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </div>
