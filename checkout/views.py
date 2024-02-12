@@ -15,6 +15,7 @@ from django.utils import timezone
 from datetime import timedelta
 
 
+
 class PaymentFormView(View):
     def get(self, request, *args, **kwargs):
         subscription_type = request.GET.get('type')

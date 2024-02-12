@@ -73,7 +73,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="membersDropdown">
                             {% if user.is_authenticated %}
-                                <a class="dropdown-item" href="#">Account</a>
+                                <a class="dropdown-item" href="{% url 'user_profile_edit' %}">Account</a>
                                 <a class="dropdown-item" href="{% url 'subscriptions' %}">Subscriptions</a>
                                 <a class="dropdown-item" href="{% url 'account_logout' %}">Log Out</a>
                             {% else %}
