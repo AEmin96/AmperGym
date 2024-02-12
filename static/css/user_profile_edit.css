@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Onest:wght@600&display=swap');
 
 body, html {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f4f7f6;
+    font-family: 'Onest', sans-serif;
+    background-image: url(../../media/formbck.jpg);
+    background-size: cover;
+    background-position: center;
     color: #333;
 }
 
