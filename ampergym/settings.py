@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-aemin96-ampergym-368z9sw3vxn.ws-eu108.gitpod.io']
+ALLOWED_HOSTS = ['8000-aemin96-ampergym-6qhobg0voni.ws-eu108.gitpod.io']
 
 # Application definition
 
@@ -51,12 +51,14 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'ampergym.urls'
@@ -152,6 +154,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
@@ -173,5 +176,12 @@ STRIPE_SECRET_KEY = STRIPE_TEST_SECRET_KEY
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 ACCOUNT_ADAPTER = 'home.adapter.MyAccountAdapter'
 
-SESSION_COOKIE_SAMESITE = 'None'
-CSRF_COOKIE_SAMESITE = 'None'
+
+# To allow credentials (cookies, authorization headers, etc.) to be included in cross-origin requests:
+CORS_ALLOW_CREDENTIALS = True
+# Configure CORS
+CORS_ALLOW_ALL_ORIGINS = True # Be cautious with this setting
+# or
+CORS_ALLOWED_ORIGINS = [
+'https://8000-aemin96-ampergym-6qhobg0voni.ws-eu108.gitpod.io',
+]
