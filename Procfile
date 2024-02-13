@@ -1,1 +1,1 @@
-web: gunicorn ampergym.wsgi 
+web: gunicorn AmperGym.wsgi 
