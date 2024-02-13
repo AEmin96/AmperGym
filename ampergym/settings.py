@@ -176,6 +176,10 @@ STRIPE_SECRET_KEY = STRIPE_TEST_SECRET_KEY
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 ACCOUNT_ADAPTER = 'home.adapter.MyAccountAdapter'
 
+SESSION_COOKIE_SAMESITE = 'None'
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SAMESITE = 'None'
+CSRF_COOKIE_SECURE = True
 
 # To allow credentials (cookies, authorization headers, etc.) to be included in cross-origin requests:
 CORS_ALLOW_CREDENTIALS = True
@@ -183,5 +187,5 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_ALL_ORIGINS = True # Be cautious with this setting
 # or
 CORS_ALLOWED_ORIGINS = [
-'https://8000-aemin96-ampergym-6qhobg0voni.ws-eu108.gitpod.io',
+'https://ampergym-f292fdd6def8.herokuapp.com',
 ]
