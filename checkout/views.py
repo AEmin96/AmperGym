@@ -1,18 +1,18 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render, redirect
 from django.views import View
-from django.conf import settings
 from django.http import JsonResponse
 from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import csrf_exempt
+from django.conf import settings
+from django.db import transaction
 import json
 import stripe
-from django.conf import settings
-from django.urls import reverse
-from django.contrib.auth.decorators import login_required
 from subscriptions.models import Subscription, UserSubscription
 from checkout.models import Checkout
 from django.utils import timezone
 from datetime import timedelta
+
+stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
 
@@ -37,57 +37,41 @@ class PaymentFormView(View):
 @csrf_exempt
 @require_POST
 def process_payment(request):
-    stripe.api_key = settings.STRIPE_SECRET_KEY
     data = json.loads(request.body)
     try:
-        # Convert amount from dollars to cents for Stripe
-        amount_in_dollars = float(data['amount'])
-        amount_in_cents = int(amount_in_dollars * 100)
-        
-        # Create a Stripe charge
-        charge = stripe.Charge.create(
-            amount=amount_in_cents,
-            currency="usd",
-            description="Subscription charge",
-            source=data['stripeToken'],
-        )
+        with transaction.atomic():
+            # Convert amount from dollars to cents for Stripe
+            amount_in_dollars = float(data['amount'])
+            amount_in_cents = int(amount_in_dollars * 100)
+            subscription_id = data['subscription_id']
 
-        # If charge is successful, create a Checkout record
-        if charge:
-            checkout = Checkout.objects.create(
-                user=request.user,
-                subscription=Subscription.objects.get(id=data['subscription_id']),
-                amount_paid=amount_in_dollars,
+            # Create a Stripe charge
+            charge = stripe.Charge.create(
+                amount=amount_in_cents,
+                currency="usd",
+                description="Subscription charge",
+                source=data['stripeToken'],  # This assumes you've obtained the stripeToken in your frontend
             )
 
-            # Update or create a UserSubscription record
-            current_time = timezone.now()
-            UserSubscription.objects.update_or_create(
-                user=request.user,
-                defaults={
-                    'subscription': checkout.subscription,
-                    'start_date': current_time,
-                    'end_date': current_time + timedelta(days=30),  # Approximation for one month
-                }
-            )
-        
+            # Assuming the charge is successful, create/update the user's subscription
+            if charge:
+                subscription = Subscription.objects.get(id=subscription_id)
+                checkout = Checkout.objects.create(
+                    user=request.user,
+                    subscription=subscription,
+                    amount_paid=amount_in_dollars,
+                )
+
+                current_time = timezone.now()
+                UserSubscription.objects.update_or_create(
+                    user=request.user,
+                    defaults={
+                        'subscription': subscription,
+                        'start_date': current_time,
+                        'end_date': current_time + timedelta(days=30),  # Approximation for one month
+                    }
+                )
+
         return JsonResponse({"message": "Successfully charged and subscription updated"})
-    except Exception as e:
-        return JsonResponse({"error": str(e)}, status=400)
-
-
-@csrf_exempt
-@require_POST
-def process_payment(request):
-    stripe.api_key = settings.STRIPE_SECRET_KEY
-    data = json.loads(request.body)
-    try:
-        charge = stripe.Charge.create(
-            amount=1000,  # amount in cents
-            currency="usd",
-            description="Example charge",
-            source=data['stripeToken'],  # obtained with Stripe.js
-        )
-        return JsonResponse({"message": "Successfully charged"})
     except Exception as e:
         return JsonResponse({"error": str(e)}, status=400)
