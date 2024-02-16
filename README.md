@@ -1,71 +1,98 @@
-<h1> AmperGym Website </h1>
-Deployed Project
-Link to the deployed project: [AmperGym Live Website](https://ampergym-f292fdd6def8.herokuapp.com/)
+<h1>AmperGym</h1>
+<h2>Deployed Project: [Your Deployed AmperGym Link Here]</h2>
 
-<h1> 1. Purpose of the Project </h1>
-The AmperGym project aims to enhance the fitness experience for users by offering an online platform where they can easily manage gym memberships, subscriptions, and personal information. It provides a seamless integration with Stripe for secure payment processing, allowing users to sign up for, upgrade, or cancel their subscriptions. The website also features a user-friendly interface for both guests and registered members, including motivational content, gym location details, operating hours, and customer testimonials.
+<h2>1. Purpose of the Project</h2>
+<p>The purpose of the AmperGym project is to provide an interactive and user-friendly gym website that offers users the ability to sign up, manage, and upgrade their subscriptions seamlessly. Integrating Stripe for secure payments, the site facilitates easy subscription selection and management, enhancing the overall user experience. The project aims to motivate users with accessible gym information, including location, opening times, and user testimonials, while also providing personalized user accounts for managing personal information and subscriptions.</p>
 
-<h1> Wireframes </h1>
-PC View Not Logged In
-PC View Not Logged In
+<h1>Wireframes</h1>
+<h3>PC View Not Logged In</h3>
+<!-- Replace # with actual image links -->
+![PC View Not Logged In](#)
 
-Phone View Not Logged In
-Phone View Not Logged In
+<h3>Phone View Not Logged In</h3>
+![Phone View Not Logged In](#)
 
-PC View Logged In
-PC View Logged In
+<h3>PC View Logged In</h3>
+![PC View Logged In](#)
 
-Phone View Logged In
-Phone View Logged In
+<h3>Phone View Logged In</h3>
+![Phone View Logged In](#)
 
-My Account PC View
-My Account PC View
+<h3>My Account PC View</h3>
+![My Account PC View](#)
 
-My Account Phone View
-My Account Phone View
+<h3>My Account Phone View</h3>
+![My Account Phone View](#)
 
-<h1> 2. User Stories </h1>h1>
-As a Guest User (Non-Logged In):
-Access to the home page, location details, opening times, testimonials, and about us.
-Ability to sign up, log in, or subscribe.
-As a Registered User (Logged In):
-Personalized greeting on the home page.
-Manage and edit personal information in the My Account section.
-View, upgrade, or cancel subscriptions.
-As an Admin:
-Access the Django admin panel to view, edit, or cancel user subscriptions.
-Manage user accounts and subscription plans.
-3. Features
-User-friendly navigation and responsive design for all devices.
-Integration with Stripe for secure subscription management.
-Dynamic content presentation based on user login status.
-Google Maps API integration to display gym location.
-Testimonial feature for users to rate and comment on the gym.
-Personalized user dashboard for managing subscriptions and personal information.
-4. Future Features
-Integration of a workout planner.
-Online personal training booking system.
-Gym equipment availability checker.
-5. Technology
-GitHub for version control.
-Django as the web framework.
-Stripe for payment processing.
-Heroku for deployment.
-PostgreSQL for database management.
-6. Testing
-6.1 Manual Testing
-Details of manual testing procedures and outcomes, including test cases for guest users, registered users, and admin functionalities.
+<h1>Entity & Relationship Diagram</h1>
+<!-- Replace # with actual image link -->
+![ER Diagram](#)
 
-6.2 Test Cases (User Story Based with Screenshots)
-Specific test cases derived from user stories, accompanied by screenshots demonstrating the test outcomes.
+<h2>2. User Stories</h2>
+<em>As a Guest User (Non-Logged In):</em>
+<ul>
+<li>Access the home page with motivational message and gym information.</li>
+<li>View gym location using Google Maps API and check opening times.</li>
+<li>Read testimonials from other gym users.</li>
+<li>Navigate to log in, sign up, or subscribe pages.</li>
+</ul>
 
-6.3 Validator Testing
-HTML Validator results.
-CSS Validator results.
-6.4 Fixed Bugs
-List of identified and resolved bugs during the development process.
-7. Deployment
-Step-by-step guide to deploying the project on Heroku, including setting up environment variables, configuring buildpacks, and linking the GitHub repository.
+<em>As a Registered User (Logged In):</em>
+<ul>
+<li>Receive a personalized greeting on the homepage.</li>
+<li>Manage and edit personal information in My Account.</li>
+<li>View, upgrade, or cancel subscriptions.</li>
+</ul>
 
-8. Credits
-Acknowledgment of any third-party resources or contributors to the project.
+<em>As an Admin:</em>
+<ul>
+<li>Access user subscriptions in the Django admin to edit or cancel them.</li>
+</ul>
+
+<h2>3. Features</h2>
+<ul>
+<li>User-friendly navigation and responsive design.</li>
+<li>Stripe integration for secure payment processing.</li>
+<li>Dynamic content for users based on login status.</li>
+<li>Google Maps API for gym location.</li>
+<li>Testimonial feature for public user feedback.</li>
+<li>Personalized user dashboard for subscription and profile management.</li>
+</ul>
+
+<h2>4. Future Features</h2>
+<ul>
+<li>Workout planner integration.</li>
+<li>Online personal training bookings.</li>
+<li>Gym equipment availability checking.</li>
+</ul>
+
+<h2>5. Technology</h2>
+<ul>
+<li>GitHub for version control.</li>
+<li>Django for the web framework.</li>
+<li>Stripe for secure payment processing.</li>
+<li>Heroku for deployment.</li>
+<li>PostgreSQL for database management.</li>
+</ul>
+
+<h2>6. Testing</h2>
+<h3>6.1 Manual Testing</h3>
+<!-- Include tables or bullet points detailing your testing processes and outcomes -->
+
+<h3>6.2 Test Cases (User Story Based with Screenshots)</h3>
+<!-- Include user stories and corresponding screenshots of the tests -->
+
+<h3>6.3 Validator Testing</h3>
+<h3>HTML Validator</h3>
+<!-- Include HTML validator results -->
+<h3>CSS Validator</h3>
+<!-- Include CSS validator results -->
+
+<h3>6.4 Fixed Bugs</h3>
+<!-- List down the bugs found and fixed -->
+
+<h3>7. Deployment</h3>
+<!-- Provide steps for how the project was deployed -->
+
+<h3>8. Credits</h3>
+<p>Code Institute for the project template and guidance.</p>
