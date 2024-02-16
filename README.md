@@ -78,7 +78,8 @@ https://github.com/AEmin96/AmperGym/assets/126208272/0aaf596b-d33b-469d-b315-6b2
 
 <ul>
   <li> <h4> As a user considering the gym, I want to read reviews and testimonials from other members to get insights into their experiences and gauge the overall satisfaction of the gym's community, helping me make a more confident decision about joining.  </h4>
-  <em> Testimonial Page Added : ![image](https://github.com/AEmin96/AmperGym/assets/126208272/a4adcd14-6704-4238-aae7-e35e187b1815)
+  <em> Testimonial Page Added :
+    ![image](https://github.com/AEmin96/AmperGym/assets/126208272/a4adcd14-6704-4238-aae7-e35e187b1815)
 </em>
   </li>
 </ul>
