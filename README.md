@@ -78,12 +78,13 @@ https://github.com/AEmin96/AmperGym/assets/126208272/0aaf596b-d33b-469d-b315-6b2
 
 <ul>
   <li> <h4> As a user considering the gym, I want to read reviews and testimonials from other members to get insights into their experiences and gauge the overall satisfaction of the gym's community, helping me make a more confident decision about joining.  </h4>
-  <em> Testimonial Page Added : </em>
+  <em> Testimonial Page Added : </em> 
+  </li>
    ![Screenshot 2024-02-16 at 18 05 58](https://github.com/AEmin96/AmperGym/assets/126208272/60796bd1-d2ae-4fbf-a201-0614434f267a)
 
 
     
-  </li>
+ 
 </ul>
 
 <h3>6.3 Validator Testing</h3>
