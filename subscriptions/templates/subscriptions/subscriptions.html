@@ -26,6 +26,7 @@
                             <p class="card-text">£{{ subscription.subscription_price }}/month</p>
                             {% if subscription.subscription_type == current_subscription %}
                                 <button class="btn btn-secondary" disabled>Subscribed</button>
+                                <a href="{% url 'subscriptions:cancel_subscription' %}" class="btn btn-danger">Cancel</a>
                             {% else %}
                                 <a href="{% url 'create-checkout-session' %}?type={{ subscription.subscription_type }}" class="btn btn-primary">Subscribe</a>
                             {% endif %}
