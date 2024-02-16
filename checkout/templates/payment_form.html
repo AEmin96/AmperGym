@@ -23,10 +23,13 @@
           {% include 'country_list.html' %}
           <input type="text" id="zip" class="StripeElement" placeholder="ZIP" required />
 
-          <input type="hidden" id="amount" name="amount" value="{{ subscription.subscription_price }}" /> <!-- Ensure you have the amount in cents -->
+          <input type="hidden" id="amount" name="amount" value="{{ subscription.subscription_price }}" /> 
           <input type="hidden" id="subscription_id" name="subscription_id" value="{{ subscription.id }}" />
+          
+
 
           <button type="submit">Pay Now</button>
+          <button class="button_cancel" onclick="location.href='{% url 'subscriptions:subscriptions_view' %}'">Cancel</button>
         </form>
       </div>
     </div>
