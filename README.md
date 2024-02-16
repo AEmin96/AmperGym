@@ -20,17 +20,17 @@ https://github.com/AEmin96/AmperGym/assets/126208272/0aaf596b-d33b-469d-b315-6b2
 <h2>2. User Stories</h2>
 <em>As a Guest User (Non-Logged In):</em>
 <ul>
-<li>Access the home page with motivational message and gym information.</li>
-<li>View gym location using Google Maps API and check opening times.</li>
-<li>Read testimonials from other gym users.</li>
-<li>Navigate to log in, sign up, or subscribe pages.</li>
+<li>As a potential gym member, I want a clear and intuitive website design that allows me to easily navigate through different sections, so I can quickly find information about classes, facilities, and membership options without feeling overwhelmed.</li>
+<li>As a user interested in joining the gym, I want a straightforward and hassle-free online signup process, allowing me to create an account, choose a suitable membership plan, and make a secure payment, so that I can become a member with minimal effort.</li>
+<li>As a user exploring gym plans, I want detailed information on each membership option, including pricing, class access, and any additional perks, so that I can make an informed decision based on my fitness needs and budget.</li>
+<li>As a user considering the gym, I want to read reviews and testimonials from other members to get insights into their experiences and gauge the overall satisfaction of the gym's community, helping me make a more confident decision about joining.</li>
 </ul>
 
 <em>As a Registered User (Logged In):</em>
 <ul>
-<li>Receive a personalized greeting on the homepage.</li>
-<li>Manage and edit personal information in My Account.</li>
-<li>View, upgrade, or cancel subscriptions.</li>
+<li>As a current gym member, I want a user-friendly dashboard where I can log in, view my subscription details, and easily manage my account settings, such as updating personal information or changing my subscription plan, to ensure a seamless experience.</li>
+<li>As a subscriber, I want to receive regular email notifications about upcoming classes, special events, and any changes to the gym schedule, so that I can stay informed and plan my workouts accordingly.</li>
+<li>As a mobile user, I want the gym website to be responsive and mobile-friendly, allowing me to sign up, manage my account, and access important information easily from my smartphone, providing a convenient and on-the-go user experience.</li>
 </ul>
 
 <em>As an Admin:</em>
