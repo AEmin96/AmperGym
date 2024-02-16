@@ -141,10 +141,6 @@ https://github.com/AEmin96/AmperGym/assets/126208272/0aaf596b-d33b-469d-b315-6b2
     <li>To create a superuser account, I executed <code>python manage.py createsuperuser</code> in the terminal and followed the on-screen prompts.</li>
 </ul>
 
-<h3>Optional: Loading Fixtures</h3>
-<ul>
-    <li>I loaded pre-populated data into the database by running <code>python manage.py loaddata fixtures/[fixture_name].json</code>.</li>
-</ul>
 
 <h3>Step 6: Running the Application</h3>
 <ul>
