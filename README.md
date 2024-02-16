@@ -26,8 +26,8 @@
 ![My Account Phone View](#)
 
 <h1>Entity & Relationship Diagram</h1>
-<!-- Replace # with actual image link -->
-![ER Diagram](#)
+![AmpergymERD drawio](https://github.com/AEmin96/AmperGym/assets/126208272/1fa8dfa1-0efa-4643-9fa1-afb76c244c60)
+
 
 <h2>2. User Stories</h2>
 <em>As a Guest User (Non-Logged In):</em>
