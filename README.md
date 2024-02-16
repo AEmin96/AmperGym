@@ -7,6 +7,10 @@
 
 <h1>Sneak Peak</h1>
 
+
+https://github.com/AEmin96/AmperGym/assets/126208272/0aaf596b-d33b-469d-b315-6b2c01d81865
+
+
 <h1>Entity & Relationship Diagram</h1>
 
 ![AmpergymERD drawio](https://github.com/AEmin96/AmperGym/assets/126208272/87818043-6ecf-4ea2-bf57-7324ad774c95)
