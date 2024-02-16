@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.urls import reverse
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -23,6 +24,6 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('', include('home.urls')),
     path('testimonials/', include('testimonials.urls')),
-    path('subscriptions/', include('subscriptions.urls')),
+    path('subscriptions/', include('subscriptions.urls', namespace='subscriptions')),
     path('checkout/', include('checkout.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

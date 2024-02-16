@@ -1,7 +1,10 @@
-from django.urls import path
-from . import views
+from django.urls import path, reverse
+from .views import subscriptions, cancel_subscription
+
+
+app_name = 'subscriptions'
 
 urlpatterns = [
-    path('', views.subscriptions, name='subscriptions'),
-    path('cancel/', views.cancel_subscription, name='cancel_subscription'),
+    path('', subscriptions, name='subscriptions'),
+    path('cancel/', cancel_subscription, name='cancel_subscription'),
 ]
