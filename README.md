@@ -26,7 +26,9 @@
 ![My Account Phone View](#)
 
 <h1>Entity & Relationship Diagram</h1>
-![AmpergymERD drawio](https://github.com/AEmin96/AmperGym/assets/126208272/1fa8dfa1-0efa-4643-9fa1-afb76c244c60)
+
+![AmpergymERD drawio](https://github.com/AEmin96/AmperGym/assets/126208272/87818043-6ecf-4ea2-bf57-7324ad774c95)
+
 
 
 <h2>2. User Stories</h2>
