@@ -89,7 +89,7 @@
             },
             body: JSON.stringify({
                 stripeToken: token.id,
-                amount: amount, // Use the validated and parsed amount
+                amount: amount, 
                 subscription_id: subscriptionId,
             })
         })
@@ -102,7 +102,7 @@
                 errorElement.textContent = data.error;
             } else {
                 alert('Payment successful!');
-                // Redirect or update UI here
+                window.location.href = '{% url 'subscriptions:subscriptions_view' %}';
             }
         })
         .catch(function (error) {
