@@ -105,12 +105,85 @@ https://github.com/AEmin96/AmperGym/assets/126208272/0aaf596b-d33b-469d-b315-6b2
 
 <h3>6.4 Fixed Bugs</h3>
 <ul>
-  <li><strong>Bug:</strong> Access Denied for Non-Logged-In Users to Subscriptions Page. <strong>Solution:</strong> The access restriction was lifted by removing the @login_required decorator, enabling non-logged-in users to view the subscriptions page.</li>
-  <li><strong>Bug:</strong> Subscriptions Not Recorded in Database Post-Checkout. <strong>Solution:</strong> The issue was traced back to a naming conflict within two functions in the same view. Resolving the naming discrepancy corrected the error, ensuring subscriptions are now properly added to the database.</li>
+  <li><strong>Bug:</strong> Access Denied for Non-Logged-In Users to Subscriptions Page. <br> <strong>Solution:</strong> The access restriction was lifted by removing the @login_required decorator, enabling non-logged-in users to view the subscriptions page.</li>
+  <li><strong>Bug:</strong> Subscriptions Not Recorded in Database Post-Checkout. <br>  <strong>Solution:</strong> The issue was traced back to a naming conflict within two functions in the same view. Resolving the naming discrepancy corrected the error, ensuring subscriptions are now properly added to the database.</li>
 </ul>
 
 <h3>7. Deployment</h3>
-<!-- Provide steps for how the project was deployed -->
+<h1>Local and Heroku Deployment</h1>
+
+<h2>Local Deployment</h2>
+
+<h3>Step 1: Cloning the Repository</h3>
+<ul>
+    <li>I navigated to the GitHub repository, clicked on the "Code" button, and copied the URL provided.</li>
+    <li>In my preferred IDE, I opened a terminal session in the directory where I wanted to clone the repository.</li>
+    <li>I typed <code>git clone</code> followed by the URL I had copied and pressed enter to clone the repository.</li>
+</ul>
+
+<h3>Step 2: Installing Dependencies</h3>
+<ul>
+    <li>Using the terminal, I executed <code>pip install -r requirements.txt</code> to install the necessary project dependencies.</li>
+</ul>
+
+<h3>Step 3: Setting Up Environment Variables</h3>
+<ul>
+    <li>I set up the required environment variables in my local environment as described in the "Environment Variables" section for proper configuration.</li>
+</ul>
+
+<h3>Step 4: Database Setup and Migrations</h3>
+<ul>
+    <li>I connected my chosen database and ran <code>python manage.py migrate</code> in the terminal to apply migrations.</li>
+</ul>
+
+<h3>Step 5: Creating a Superuser</h3>
+<ul>
+    <li>To create a superuser account, I executed <code>python manage.py createsuperuser</code> in the terminal and followed the on-screen prompts.</li>
+</ul>
+
+<h3>Optional: Loading Fixtures</h3>
+<ul>
+    <li>I loaded pre-populated data into the database by running <code>python manage.py loaddata fixtures/[fixture_name].json</code>.</li>
+</ul>
+
+<h3>Step 6: Running the Application</h3>
+<ul>
+    <li>Finally, I started the application by typing <code>python manage.py runserver</code> in the terminal and opened the provided URL in my browser to view the app.</li>
+</ul>
+
+<h2>Heroku Deployment</h2>
+
+<h3>Step 1: Heroku App Creation</h3>
+<ul>
+    <li>I logged into the Heroku dashboard and created a new app by following the setup prompts.</li>
+</ul>
+
+<h3>Step 2: GitHub Repository Connection</h3>
+<ul>
+    <li>I connected my GitHub repository to my Heroku app through the Heroku dashboard, enabling code sync between GitHub and Heroku.</li>
+</ul>
+
+<h3>Step 3: Buildpack Configuration</h3>
+<ul>
+    <li>In the "Settings" tab of my Heroku app, I ensured that the Python Buildpack was added to allow Heroku to recognize and build the project as a Python app.</li>
+</ul>
+
+<h3>Step 4: Setting Environment Variables on Heroku</h3>
+<ul>
+    <li>I set the necessary environment variables in the "Config Vars" section of the "Settings" tab to match the local setup.</li>
+</ul>
+
+<h3>Step 5: Deployment Trigger</h3>
+<ul>
+    <li>In the "Deploy" tab, I enabled automatic deploys from my connected GitHub repository and manually triggered a deployment by clicking the "Deploy Branch" button.</li>
+</ul>
+
+<h3>Step 6: Launching the App</h3>
+<ul>
+    <li>Once deployment was successful, I clicked on the "Open App" button to view my live application hosted on Heroku.</li>
+</ul>
+
+
 
 <h3>8. Credits</h3>
 <p>Code Institute for the project template and guidance.</p>
