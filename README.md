@@ -5,25 +5,7 @@
 <h2>1. Purpose of the Project</h2>
 <p>The purpose of the AmperGym project is to provide an interactive and user-friendly gym website that offers users the ability to sign up, manage, and upgrade their subscriptions seamlessly. Integrating Stripe for secure payments, the site facilitates easy subscription selection and management, enhancing the overall user experience. The project aims to motivate users with accessible gym information, including location, opening times, and user testimonials, while also providing personalized user accounts for managing personal information and subscriptions.</p>
 
-<h1>Wireframes</h1>
-<h3>PC View Not Logged In</h3>
-<!-- Replace # with actual image links -->
-![PC View Not Logged In](#)
-
-<h3>Phone View Not Logged In</h3>
-![Phone View Not Logged In](#)
-
-<h3>PC View Logged In</h3>
-![PC View Logged In](#)
-
-<h3>Phone View Logged In</h3>
-![Phone View Logged In](#)
-
-<h3>My Account PC View</h3>
-![My Account PC View](#)
-
-<h3>My Account Phone View</h3>
-![My Account Phone View](#)
+<h1>Sneak Peak</h1>
 
 <h1>Entity & Relationship Diagram</h1>
 
