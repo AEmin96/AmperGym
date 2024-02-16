@@ -94,9 +94,14 @@ https://github.com/AEmin96/AmperGym/assets/126208272/0aaf596b-d33b-469d-b315-6b2
 
 <h3>6.3 Validator Testing</h3>
 <h3>HTML Validator</h3>
-<!-- Include HTML validator results -->
+
+![Screenshot 2024-02-16 at 18 34 28](https://github.com/AEmin96/AmperGym/assets/126208272/71156a5b-4126-4163-8f2c-fdcbe9d43182)
+
+
 <h3>CSS Validator</h3>
-<!-- Include CSS validator results -->
+
+![Screenshot 2024-02-16 at 18 38 32](https://github.com/AEmin96/AmperGym/assets/126208272/5285ee6a-7f1a-4303-828d-1f7d188d195e)
+
 
 <h3>6.4 Fixed Bugs</h3>
 <!-- List down the bugs found and fixed -->
