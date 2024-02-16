@@ -104,7 +104,10 @@ https://github.com/AEmin96/AmperGym/assets/126208272/0aaf596b-d33b-469d-b315-6b2
 
 
 <h3>6.4 Fixed Bugs</h3>
-<!-- List down the bugs found and fixed -->
+<ul>
+  <li><strong>Bug:</strong> Access Denied for Non-Logged-In Users to Subscriptions Page. <strong>Solution:</strong> The access restriction was lifted by removing the @login_required decorator, enabling non-logged-in users to view the subscriptions page.</li>
+  <li><strong>Bug:</strong> Subscriptions Not Recorded in Database Post-Checkout. <strong>Solution:</strong> The issue was traced back to a naming conflict within two functions in the same view. Resolving the naming discrepancy corrected the error, ensuring subscriptions are now properly added to the database.</li>
+</ul>
 
 <h3>7. Deployment</h3>
 <!-- Provide steps for how the project was deployed -->
