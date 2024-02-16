@@ -1,11 +1,11 @@
-AmperGym Website
+<h1> AmperGym Website </h1>
 Deployed Project
 Link to the deployed project: AmperGym Live Website
 
-1. Purpose of the Project
+<h1> 1. Purpose of the Project </h1>
 The AmperGym project aims to enhance the fitness experience for users by offering an online platform where they can easily manage gym memberships, subscriptions, and personal information. It provides a seamless integration with Stripe for secure payment processing, allowing users to sign up for, upgrade, or cancel their subscriptions. The website also features a user-friendly interface for both guests and registered members, including motivational content, gym location details, operating hours, and customer testimonials.
 
-Wireframes
+<h1> Wireframes </h1>
 PC View Not Logged In
 PC View Not Logged In
 
@@ -24,7 +24,7 @@ My Account PC View
 My Account Phone View
 My Account Phone View
 
-2. User Stories
+<h1> 2. User Stories </h1>h1>
 As a Guest User (Non-Logged In):
 Access to the home page, location details, opening times, testimonials, and about us.
 Ability to sign up, log in, or subscribe.
