@@ -8,6 +8,29 @@
             <h1 class="display-4 text-center">Subscriptions</h1>
         </div>
 
+        <!-- Cancel Subscription Modal -->
+            <div class="modal fade" id="cancelSubscriptionModal" tabindex="-1" role="dialog" aria-labelledby="cancelSubscriptionModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="cancelSubscriptionModalLabel">Cancel Subscription</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                    Are you sure you want to cancel your subscription?
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <a href="{% url 'subscriptions:cancel_subscription' %}" class="btn btn-danger">Cancel Subscription</a>
+                    </div>
+                </div>
+                </div>
+            </div>
+  
+
+
         <div class="row">
             {% for subscription in subscriptions %}
                 <div class="col-md-4">
@@ -26,7 +49,9 @@
                             <p class="card-text">£{{ subscription.subscription_price }}/month</p>
                             {% if subscription.subscription_type == current_subscription %}
                                 <button class="btn btn-secondary" disabled>Subscribed</button>
-                                <a href="{% url 'subscriptions:cancel_subscription' %}" class="btn btn-danger">Cancel</a>
+                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#cancelSubscriptionModal">
+                                    Cancel Subscription
+                                  </button>
                             {% else %}
                                 <a href="{% url 'create-checkout-session' %}?type={{ subscription.subscription_type }}" class="btn btn-primary">Subscribe</a>
                             {% endif %}
