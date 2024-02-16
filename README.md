@@ -1,5 +1,6 @@
 <h1>AmperGym</h1>
-<h2>Deployed Project: [Your Deployed AmperGym Link Here]</h2>
+<h2>Deployed Project: <a href="https://ampergym-f292fdd6def8.herokuapp.com/">AmperGym</a></h2>
+
 
 <h2>1. Purpose of the Project</h2>
 <p>The purpose of the AmperGym project is to provide an interactive and user-friendly gym website that offers users the ability to sign up, manage, and upgrade their subscriptions seamlessly. Integrating Stripe for secure payments, the site facilitates easy subscription selection and management, enhancing the overall user experience. The project aims to motivate users with accessible gym information, including location, opening times, and user testimonials, while also providing personalized user accounts for managing personal information and subscriptions.</p>
