@@ -1,39 +1,71 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+AmperGym Website
+Deployed Project
+Link to the deployed project: AmperGym Live Website
 
-Welcome,
+1. Purpose of the Project
+The AmperGym project aims to enhance the fitness experience for users by offering an online platform where they can easily manage gym memberships, subscriptions, and personal information. It provides a seamless integration with Stripe for secure payment processing, allowing users to sign up for, upgrade, or cancel their subscriptions. The website also features a user-friendly interface for both guests and registered members, including motivational content, gym location details, operating hours, and customer testimonials.
 
-This is the Code Institute student template for Codeanywhere. If you are using Gitpod then you need [this template](https://github.com/Code-Institute-Org/gitpod-full-template) instead.  We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+Wireframes
+PC View Not Logged In
+PC View Not Logged In
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **August 30th, 2023**
+Phone View Not Logged In
+Phone View Not Logged In
 
-## Codeanywhere Reminders
+PC View Logged In
+PC View Logged In
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
+Phone View Logged In
+Phone View Logged In
 
-`python3 -m http.server`
+My Account PC View
+My Account PC View
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+My Account Phone View
+My Account Phone View
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
+2. User Stories
+As a Guest User (Non-Logged In):
+Access to the home page, location details, opening times, testimonials, and about us.
+Ability to sign up, log in, or subscribe.
+As a Registered User (Logged In):
+Personalized greeting on the home page.
+Manage and edit personal information in the My Account section.
+View, upgrade, or cancel subscriptions.
+As an Admin:
+Access the Django admin panel to view, edit, or cancel user subscriptions.
+Manage user accounts and subscription plans.
+3. Features
+User-friendly navigation and responsive design for all devices.
+Integration with Stripe for secure subscription management.
+Dynamic content presentation based on user login status.
+Google Maps API integration to display gym location.
+Testimonial feature for users to rate and comment on the gym.
+Personalized user dashboard for managing subscriptions and personal information.
+4. Future Features
+Integration of a workout planner.
+Online personal training booking system.
+Gym equipment availability checker.
+5. Technology
+GitHub for version control.
+Django as the web framework.
+Stripe for payment processing.
+Heroku for deployment.
+PostgreSQL for database management.
+6. Testing
+6.1 Manual Testing
+Details of manual testing procedures and outcomes, including test cases for guest users, registered users, and admin functionalities.
 
-`http_server`
+6.2 Test Cases (User Story Based with Screenshots)
+Specific test cases derived from user stories, accompanied by screenshots demonstrating the test outcomes.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+6.3 Validator Testing
+HTML Validator results.
+CSS Validator results.
+6.4 Fixed Bugs
+List of identified and resolved bugs during the development process.
+7. Deployment
+Step-by-step guide to deploying the project on Heroku, including setting up environment variables, configuring buildpacks, and linking the GitHub repository.
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
-
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
-
----
-
-Happy coding!
+8. Credits
+Acknowledgment of any third-party resources or contributors to the project.
