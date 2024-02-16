@@ -66,7 +66,13 @@ https://github.com/AEmin96/AmperGym/assets/126208272/0aaf596b-d33b-469d-b315-6b2
 
 <h2>6. Testing</h2>
 <h3>6.1 Manual Testing</h3>
-<!-- Include tables or bullet points detailing your testing processes and outcomes -->
+
+| Test                                           | Expected Result                                                                                         | Actual Result                                                                                      | Resolved by                                                                                                        |
+|------------------------------------------------|---------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|
+| Email verification                             | Prevent the use of one email to open multiple accounts                                                 | One email could be used to create multiple accounts                                                | Implemented email uniqueness validation on account creation. If an email is already in use, a "This email is already in use" message is shown. |
+| Subscribing to 2 plans at the same time       | User can only have one subscription at a time. Selecting another plan updates the current subscription | Users were able to subscribe to multiple plans simultaneously                                      | Modified subscription logic to automatically cancel the current subscription and activate the new selection upon change.                      |
+| Cancelling subscription                        | A confirmation modal appears to ensure the user wants to cancel their subscription                      | The subscription would cancel immediately without confirmation                                     | Implemented a confirmation modal that triggers upon the cancel subscription action, requiring user confirmation to proceed.                   |
+
 
 <h3>6.2 Test Cases (User Story Based with Screenshots)</h3>
 <!-- Include user stories and corresponding screenshots of the tests -->
