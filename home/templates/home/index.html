@@ -16,7 +16,7 @@
         {% if user.is_authenticated %}
             <h1 class="display-4">Welcome To AMPERGYM! </h1>
             <p class="lead">Add Or Manage Subscriptions:</p>
-            <a href="{% url 'subscriptions' %}" class="btn btn-primary btn-lg">Subscriptions</a>
+            <a href="{% url 'subscriptions:subscriptions_view' %}" class="btn btn-primary btn-lg">Subscriptions</a>
 
         {% else %}
             <h1 class="display-4">Change Your Life</h1>
