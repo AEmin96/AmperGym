@@ -183,3 +183,5 @@ https://github.com/AEmin96/AmperGym/assets/126208272/0aaf596b-d33b-469d-b315-6b2
 
 <h3>8. Credits</h3>
 <p>Code Institute for the project template and guidance.</p>
+<p> Background Video : <a href="https://www.pexels.com/@cottonbro/" target="_blank" class="text-black mr-3"> @cottonbro </a> </p>
+         <p> Background Images : <a href="https://www.pexels.com/@goumbik" target="_blank" class="text-black mr-3"> @goumbik</a> </p>
