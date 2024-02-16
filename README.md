@@ -83,7 +83,7 @@ https://github.com/AEmin96/AmperGym/assets/126208272/0aaf596b-d33b-469d-b315-6b2
 
 ![testi](https://github.com/AEmin96/AmperGym/assets/126208272/a14c410d-1b63-453d-85cc-877246648bd5)
 
-     <li> <h4> As a current gym member, I want a user-friendly dashboard where I can log in, view my subscription details, and easily manage my account settings, such as updating personal information or changing my subscription plan, to ensure a seamless experience. </h4>
+  <li> <h4> As a current gym member, I want a user-friendly dashboard where I can log in, view my subscription details, and easily manage my account settings, such as updating personal information or changing my subscription plan, to ensure a seamless experience. </h4>
   <em> Subscriptions Page Features Easy Uprade & Cancel Membership Interface : </em> 
   </li>
 
