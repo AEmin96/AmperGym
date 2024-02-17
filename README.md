@@ -26,11 +26,11 @@
 
 ![Website Sample (2)](https://github.com/AEmin96/AmperGym/assets/126208272/420713bc-8bd6-498f-b4a0-a5eb61ba1ffc)
 
+![Website Sample (4)](https://github.com/AEmin96/AmperGym/assets/126208272/69f46a2b-8a8a-4922-85d2-621ab3bc994f)
+
 <h2> Testimonials </h2>
 
-![Website Sample (3)](https://github.com/AEmin96/AmperGym/assets/126208272/8c88b917-0572-4ee2-a45c-438a72c84130)
 
-![Website Sample (4)](https://github.com/AEmin96/AmperGym/assets/126208272/69f46a2b-8a8a-4922-85d2-621ab3bc994f)
 
 <h2> About Us </h2>
 
