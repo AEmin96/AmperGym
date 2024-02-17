@@ -37,8 +37,9 @@
 
 ![Website Sample (7)](https://github.com/AEmin96/AmperGym/assets/126208272/4b1a7b9e-5333-42af-9871-3bd9bd75f5fe)
 
+<h2> Subscriptions </h2>
 
-
+![Website Sample (8)](https://github.com/AEmin96/AmperGym/assets/126208272/9aa9e579-0abf-4286-9345-f4114e00fccc)
 
 
 <h2>2. User Stories</h2>
