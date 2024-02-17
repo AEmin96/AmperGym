@@ -35,6 +35,7 @@
 
 <h2> About Us </h2>
 
+![Website Sample (6)](https://github.com/AEmin96/AmperGym/assets/126208272/24583fb8-bb6f-43b0-834d-e51bd36bd88c)
 
 
 
