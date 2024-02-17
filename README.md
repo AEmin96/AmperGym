@@ -11,9 +11,10 @@
 
 <h1>Entity & Relationship Diagram</h1>
 
-![AmpergymERD drawio](https://github.com/AEmin96/AmperGym/assets/126208272/87818043-6ecf-4ea2-bf57-7324ad774c95)
 
+![333 drawio](https://github.com/AEmin96/AmperGym/assets/126208272/129caf31-4fb8-42d2-983c-be572e94daba)
 
+<em> ERD created using  <a href="https://app.diagrams.net/" target="_blank" class="text-black mr-3"> Draw.io </a> </p> </em>
 
 <h2>2. User Stories</h2>
 <em>As a Guest User (Non-Logged In):</em>
