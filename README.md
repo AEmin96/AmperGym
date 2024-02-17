@@ -28,7 +28,8 @@
 
 <h2> Testimonials </h2>
 
-![Website Sample (3)](https://github.com/AEmin96/AmperGym/assets/126208272/d4e41fe6-f590-4ec9-afd2-d33b3d790586)
+![Website Sample (3)](https://github.com/AEmin96/AmperGym/assets/126208272/8c88b917-0572-4ee2-a45c-438a72c84130)
+
 
 <h2> About Us </h2>
 
