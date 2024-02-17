@@ -16,6 +16,13 @@
 
 <em> ERD created using  <a href="https://app.diagrams.net/" target="_blank" class="text-black mr-3"> Draw.io </a> </p> </em>
 
+<h1> Wireframes </h1>
+
+<h2> Home Screen </h2>
+
+![Website Sample (1)](https://github.com/AEmin96/AmperGym/assets/126208272/2e2782cc-b8b7-4e35-9c5f-a7c5bee2e664)
+
+
 <h2>2. User Stories</h2>
 <em>As a Guest User (Non-Logged In):</em>
 <ul>
