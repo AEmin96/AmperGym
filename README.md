@@ -22,6 +22,11 @@
 
 ![Website Sample (1)](https://github.com/AEmin96/AmperGym/assets/126208272/2e2782cc-b8b7-4e35-9c5f-a7c5bee2e664)
 
+<h2> Location </h2>
+
+![Website Sample (2)](https://github.com/AEmin96/AmperGym/assets/126208272/420713bc-8bd6-498f-b4a0-a5eb61ba1ffc)
+
+
 
 <h2>2. User Stories</h2>
 <em>As a Guest User (Non-Logged In):</em>
