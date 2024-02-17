@@ -26,6 +26,14 @@
 
 ![Website Sample (2)](https://github.com/AEmin96/AmperGym/assets/126208272/420713bc-8bd6-498f-b4a0-a5eb61ba1ffc)
 
+<h2> Testimonials </h2>
+
+![Website Sample (3)](https://github.com/AEmin96/AmperGym/assets/126208272/d4e41fe6-f590-4ec9-afd2-d33b3d790586)
+
+<h2> About Us </h2>
+
+
+
 
 
 <h2>2. User Stories</h2>
