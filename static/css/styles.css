@@ -101,6 +101,18 @@ body {
     animation: fadeIn 1s ease-out; 
 }
 
+.loc-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/static/images/locbackground.jpg') center/cover no-repeat;
+    opacity: 1.6; 
+}
+
+
 .loc-section {
     min-height: 100vh;
     background-size: cover;
@@ -109,6 +121,34 @@ body {
     transition: color 0.5s ease;
     animation: fadeIn 1s ease-out;  
 }
+
+
+.loc-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+.loc-section table.table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #dee2e6;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    text-shadow: none;
+}
+
+.loc-section table.table th, .loc-section table.table td {
+    padding: 8px;
+    text-align: left;
+    border: 2px solid black;
+}
+
+.loc-section table.table th {
+    background-color: #6c757d;
+    color: #ffffff;
+    border: 2px solid black;
+}
+
 
 .embed-responsive {
     border: 2px solid #030303; 
@@ -136,43 +176,6 @@ body {
 }
 
 
-.loc-section::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('/static/images/locbackground.jpg') center/cover no-repeat;
-    filter: blur(100px); 
-    opacity: 1.6; 
-}
-
-.loc-section .container {
-    position: relative;
-    z-index: 1;
-}
-
-.loc-section table.table {
-    width: 100%;
-    border-collapse: collapse;
-    border: 1px solid #dee2e6;
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    text-shadow: none;
-}
-
-.loc-section table.table th, .loc-section table.table td {
-    padding: 8px;
-    text-align: left;
-    border: 2px solid black;
-}
-
-.loc-section table.table th {
-    background-color: #6c757d;
-    color: #ffffff;
-    border: 2px solid black;
-}
 
 .formsbck {
     min-height: 100vh;
