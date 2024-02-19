@@ -105,30 +105,32 @@ body {
     min-height: 100vh;
     background-size: cover;
     background-position: center;
+    overflow: hidden;
     animation: fadeIn 1s ease-out;  
 }
 
 
 .loc-section table.table {
-    width: 100%;
-    border-collapse: collapse;
-    border: 1px solid #dee2e6;
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    text-shadow: none;
+    width: 100% !important;
+    border-collapse: collapse !important;
+    border: 1px solid #dee2e6 !important;
+    background-color: #f8f9fa !important;
+    border-radius: 8px !important;
+    text-shadow: none !important;
 }
 
 .loc-section table.table th, .loc-section table.table td {
-    padding: 8px;
-    text-align: left;
-    border: 2px solid black;
+    padding: 8px !important;
+    text-align: left !important;
+    border: 2px solid black !important;
 }
 
 .loc-section table.table th {
-    background-color: #6c757d;
-    color: #ffffff;
-    border: 2px solid black;
+    background-color: #6c757d !important;
+    color: #ffffff !important;
+    border: 2px solid black !important;
 }
+
 
 
 .embed-responsive {
