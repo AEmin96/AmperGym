@@ -106,15 +106,9 @@ body {
     background-size: cover;
     background-position: center;
     overflow: hidden;
-    transition: color 0.5s ease;
     animation: fadeIn 1s ease-out;  
 }
 
-
-.loc-section .container {
-    position: relative;
-    z-index: 1;
-}
 
 .loc-section table.table {
     width: 100%;
