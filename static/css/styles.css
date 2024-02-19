@@ -105,7 +105,6 @@ body {
     min-height: 100vh;
     background-size: cover;
     background-position: center;
-    overflow: hidden;
     animation: fadeIn 1s ease-out;  
 }
 
