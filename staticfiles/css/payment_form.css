@@ -101,6 +101,26 @@ button {
     transition: background-color 0.2s ease;
 }
 
+.button_cancel {
+    background-color: #da0000;
+    color: white;
+    border: none;
+    padding: 12px;
+    margin-top: 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    transition: background-color 0.2s ease;
+}
+
+
+.button_cancel:hover{
+    background-color: #a90000;
+}
+
 button:hover {
     background-color: #43458b;
 }
@@ -122,7 +142,7 @@ button:hover {
     }
 
     /* Adjust button and StripeElement sizes for better mobile experience */
-    button, .StripeElement {
+    button, .StripeElement, .button_cancel {
         font-size: 14px;
     }
 }
