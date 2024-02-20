@@ -91,6 +91,8 @@
 
 <h2>6. Testing</h2>
 <h3>6.1 Manual Testing</h3>
+
+
 | Test                                          | Expected Result                                                                                           | Actual Result                                                                                        | Resolved by                                                                                                          | Test Result       |
 |-----------------------------------------------|-----------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|-------------------|
 | Email verification                            | Prevent the use of one email to open multiple accounts                                                    | One email could be used to create multiple accounts                                                  | Implemented email uniqueness validation on account creation. If an email is already in use, a "This email is already in use" message is shown.   | Pass              |
@@ -103,6 +105,7 @@
 | Become a Member page navigation link         | Expected result when clicked to take you to the Become a Member page                                      | Clicked and navigated to the Become a Member page as expected                                        | N/A                                                                                                                  | Pass              |
 | Subscriptions page navigation link           | Expected result when clicked to take you to the Subscriptions page                                        | Clicked and navigated to the Subscriptions page as expected                                          | N/A                                                                                                                  | Pass              |
 | Testimonial addition and rating display      | Testimonials could be added successfully and their ratings should be displayed                            | Testimonials could be added successfully, however, the rating wasn't showing                        | Implemented the star icon from Font Awesome and fixed the formatting issue to ensure ratings are displayed correctly.                          | Fail (Resolved)   |
+
 
 
 <h3>6.2 Test Cases (User Story Based with Screenshots)</h3>
