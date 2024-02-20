@@ -1,5 +1,5 @@
 <h1>AmperGym</h1>
-<h2>Deployed Project: <a href="https://ampergym-7d2381aee37e.herokuapp.com/">AmperGym</a></h2>
+<h2>Deployed Project: <a href="https://ampergym-7d2381aee37e.herokuapp.com/" target="_blank">AmperGym</a></h2>
 
 
 
