@@ -42,7 +42,9 @@ def process_payment(request):
         with transaction.atomic():
             # Convert amount from dollars to cents for Stripe
             amount_in_dollars = float(data['amount'])
-            amount_in_cents = float(amount_in_dollars * 100)
+            amount_in_cents = int(amount_in_dollars * 100) 
+            formatted_amount_in_dollars = "{:.2f}".format(amount_in_dollars)
+
             subscription_id = data['subscription_id']
 
             # Create a Stripe charge
@@ -50,7 +52,7 @@ def process_payment(request):
                 amount=amount_in_cents,
                 currency="usd",
                 description="Subscription charge",
-                source=data['stripeToken'],  
+                source=data['stripeToken'],
             )
 
             if charge:
@@ -58,7 +60,7 @@ def process_payment(request):
                 checkout = Checkout.objects.create(
                     user=request.user,
                     subscription=subscription,
-                    amount_paid=amount_in_dollars,
+                    amount_paid=formatted_amount_in_dollars,  
                 )
 
                 current_time = timezone.now()
@@ -71,6 +73,6 @@ def process_payment(request):
                     }
                 )
 
-        return JsonResponse({"message": "Successfully charged and subscription updated"})
+        return JsonResponse({"message": "Successfully charged and subscription updated", "amount": formatted_amount_in_dollars})
     except Exception as e:
         return JsonResponse({"error": str(e)}, status=400)
