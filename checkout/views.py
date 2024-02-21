@@ -50,10 +50,9 @@ def process_payment(request):
                 amount=amount_in_cents,
                 currency="usd",
                 description="Subscription charge",
-                source=data['stripeToken'],  # This assumes you've obtained the stripeToken in your frontend
+                source=data['stripeToken'],  
             )
 
-            # Assuming the charge is successful, create/update the user's subscription
             if charge:
                 subscription = Subscription.objects.get(id=subscription_id)
                 checkout = Checkout.objects.create(
