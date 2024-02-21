@@ -20,15 +20,13 @@ def user_profile_edit(request):
     if request.method == 'POST':
         user_form = UserProfileEditForm(request.POST, instance=request.user)
         password_form = UserPasswordChangeForm(data=request.POST, user=request.user)
-        if user_form.is_valid() and (not password_form.data['old_password'] or password_form.is_valid()):
+        if user_form.is_valid() and password_form.is_valid():
             user_form.save()
-            if password_form.data['old_password']:  # Checks if the password fields were filled
-                password_form.save()
-                messages.success(request, 'Your password was successfully updated!')
-            messages.success(request, 'Your profile was successfully updated!')
+            password_form.save()
+            messages.success(request, 'Your profile and password were successfully updated!')
             return redirect('user_profile_edit')
         else:
-            messages.error(request, 'Please correct the error below.')
+            messages.error(request, 'Please correct the errors below.')
     else:
         user_form = UserProfileEditForm(instance=request.user)
         password_form = UserPasswordChangeForm(user=request.user)
