@@ -69,6 +69,36 @@
 </div>
 
 <script>
-
-</script>
+    $(document).ready(function() {
+        $('#confirmSave').click(function(e) {
+            e.preventDefault();
+            var formData = new FormData($('.profile-edit-form')[0]);
+            
+            $.ajax({
+                type: 'POST',
+                url: '', 
+                data: formData,
+                processData: false,  
+                contentType: false,  
+                success: function(response) {
+                    $('#messageModalBody').text(response.message);
+                    $('#messageModal').modal('show');
+                    setTimeout(function() {
+                        window.location.reload(true);
+                    }, 2000);
+                },
+                error: function(xhr, errmsg, err) {
+                    var errors = JSON.parse(xhr.responseText).errors;
+                    var errorMessage = "";
+                    $.each(errors, function(key, value) {
+                        errorMessage += value + "\n";
+                    });
+                    $('#messageModalBody').text(errorMessage);
+                    $('#messageModal').modal('show');
+                }
+            });
+        });
+    });
+    </script>
+    
 {% endblock %}
