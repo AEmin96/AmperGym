@@ -8,39 +8,39 @@
     <!-- Message Modal -->
     <div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="modal-title" id="messageModalLabel">Profile Update</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="messageModalLabel">Profile Update</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="messageModalBody">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
             </div>
-            <div class="modal-body" id="messageModalBody">
-            </div>
-            <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
         </div>
     </div>
     <!-- Confirmation Modal -->
     <div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="confirmationModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="modal-title" id="confirmationModalLabel">Confirm Changes</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmationModalLabel">Confirm Changes</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you would like to apply those changes?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                    <button type="button" class="btn btn-primary" id="confirmSave">Yes</button>
+                </div>
             </div>
-            <div class="modal-body">
-            Are you sure you would like to apply those changes?
-            </div>
-            <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-            <button type="button" class="btn btn-primary" id="confirmSave">Yes</button>
-            </div>
-        </div>
         </div>
     </div>
     <form method="post" class="profile-edit-form">
@@ -53,7 +53,7 @@
             <p>If you would like to change your password, enter the new password below. <br> Otherwise, leave these fields blank.</p>
             <div>
                 <label for="id_old_password">Old password:</label>
-                <input type="password" name="old_password"  id="id_old_password" class="form-control" required>
+                <input type="password" name="old_password" id="id_old_password" class="form-control" required>
             </div>
             <div>
                 <label for="id_new_password1">New password:</label>
@@ -64,51 +64,92 @@
                 <input type="password" name="new_password2" id="id_new_password2" class="form-control" autocomplete="new-password">
             </div>
         </div>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#confirmationModal">Save changes</button>
+        <button type="button" class="btn btn-primary" id="saveChanges">Save changes</button>
     </form>
 </div>
 
 <script>
     $(document).ready(function() {
-        $('#confirmSave').click(function(e) {
-            e.preventDefault(); 
-    
-            var formData = new FormData($('.profile-edit-form')[0]); // Get form data
-    
-            $.ajax({
-                type: 'POST',
-                url: '', 
-                data: formData,
-                processData: false,
-                contentType: false,
-                headers: {
-                    'X-CSRFToken': $('input[name=csrfmiddlewaretoken]').val() 
-                },
-                success: function(response) {
-                    // Success logic
-                    $('#messageModalBody').text(response.message);
-                    $('#messageModal').modal('show');
-                    // Refresh the page after the modal message has been shown
-                    setTimeout(function() {
-                        window.location.reload(true);
-                    }, 2000);
-                },
-                error: function(xhr, status, error) {
-                    // Error logic
-                    var response = JSON.parse(xhr.responseText);
-                    var errors = response.errors;
-                    var errorMessage = Object.keys(errors).map(function(key) {
-                        return errors[key];
-                    }).join("\n");
-                    $('#messageModalBody').text(errorMessage);
-                    $('#messageModal').modal('show');
+        function validateAndHighlight() {
+            var isValid = true;
+            // Clear previous error messages
+            $('.error-message').remove();
+            $('.profile-edit-form').find('input[required], textarea[required], select[required]').each(function() {
+                if ($(this).val() === '') {
+                    $(this).addClass('is-invalid'); // Highlight fields that are required and empty
+                    // Add an error message directly after the field
+                    $('<div class="error-message text-danger">This field is required.</div>').insertAfter($(this));
+                    isValid = false;
+                } else {
+                    $(this).removeClass('is-invalid');
                 }
             });
+            return isValid;
+        }
     
-            $('#confirmationModal').modal('hide'); 
+        $('#saveChanges').click(function(e) {
+            // Validate fields before showing the confirmation modal
+            if (!validateAndHighlight()) {
+                e.preventDefault(); // Prevent the confirmation modal from showing
+            } else {
+                // If all fields are valid, show the confirmation modal
+                $('#confirmationModal').modal('show');
+            }
+        });
+    
+        $('#confirmSave').click(function(e) {
+            e.preventDefault();
+            if (validateAndHighlight()) { 
+                var formData = new FormData($('.profile-edit-form')[0]);
+                $.ajax({
+                    type: 'POST',
+                    url: '', 
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    headers: {
+                        'X-CSRFToken': $('input[name=csrfmiddlewaretoken]').val()
+                    },
+                    success: function(response) {
+                        $('#messageModalBody').text(response.message);
+                        $('#messageModal').modal('show');
+                        setTimeout(function() {
+                            window.location.reload(true);
+                        }, 2000);
+                    },
+                    error: function(xhr, status, error) {
+                        var response = JSON.parse(xhr.responseText);
+                        var errors = response.errors;
+                        var customErrorMessage = "";
+    
+                        // Prioritize the old password error message if present
+                        if (errors.old_password) {
+                            customErrorMessage = "Your old password was entered incorrectly. Please enter it again.";
+                        } else if (errors.new_password2) {
+                            // Custom handling for non-matching new passwords
+                            customErrorMessage = "Your new passwords don't match.";
+                        } else {
+                            // Handle other error messages
+                            var errorMessage = Object.keys(errors).map(function(key) {
+                                return errors[key];
+                            }).join(" ");
+                            customErrorMessage = errorMessage;
+                        }
+    
+                        $('#messageModalBody').text(customErrorMessage);
+                        $('#messageModal').modal('show');
+                    }
+                });
+                $('#confirmationModal').modal('hide');
+            }
+        });
+    
+
+        $('.profile-edit-form').find('input[required], textarea[required], select[required]').on('input', function() {
+            $(this).removeClass('is-invalid');
+            $(this).next('.error-message').remove(); 
         });
     });
     </script>
-    
-    
+
 {% endblock %}
