@@ -135,38 +135,7 @@
 | Subscriptions page navigation link           | Expected result when clicked to take you to the Subscriptions page                                        | Clicked and navigated to the Subscriptions page as expected                                          | N/A                                                                                                                  | Pass              |
 | Testimonial addition and rating display      | Testimonials could be added successfully and their ratings should be displayed                            | Testimonials could be added successfully, however, the rating wasn't showing                        | Implemented the star icon from Font Awesome and fixed the formatting issue to ensure ratings are displayed correctly.                          | Fail (Resolved)   |
 
-
-
-<h3>6.2 Test Cases (User Story Based with Screenshots)</h3>
-
-<ul>
-  <li> <h4> As a user considering the gym, I want to read reviews and testimonials from other members to get insights into their experiences and gauge the overall satisfaction of the gym's community, helping me make a more confident decision about joining.  </h4>
-  <em> Testimonial Page Added : </em> 
-  </li>
-
-![testi](https://github.com/AEmin96/AmperGym/assets/126208272/a14c410d-1b63-453d-85cc-877246648bd5)
-
-  <li> <h4> As a current gym member, I want a user-friendly dashboard where I can log in, view my subscription details, and easily manage my account settings, such as updating personal information or changing my subscription plan, to ensure a seamless experience. </h4>
-  <em> Subscriptions Page Features Easy Uprade & Cancel Membership Interface : </em> 
-  </li>
-
-  ![Screenshot 2024-02-16 at 18 14 00](https://github.com/AEmin96/AmperGym/assets/126208272/82592e3b-6b41-4bfa-a606-0ca17525010a)
-
- 
-</ul>
-
-<h3>6.3 Validator Testing</h3>
-<h3>HTML Validator</h3>
-
-![Screenshot 2024-02-16 at 18 34 28](https://github.com/AEmin96/AmperGym/assets/126208272/71156a5b-4126-4163-8f2c-fdcbe9d43182)
-
-
-<h3>CSS Validator</h3>
-
-![Screenshot 2024-02-16 at 18 38 32](https://github.com/AEmin96/AmperGym/assets/126208272/5285ee6a-7f1a-4303-828d-1f7d188d195e)
-
-
-<h3>6.4 Fixed Bugs</h3>
+<h3>6.2 Fixed Bugs</h3>
 <table border="1">
   <tr>
     <th>Bug</th>
@@ -197,6 +166,37 @@
     <td>Resolved</td>
   </tr>
 </table>
+
+<h3>6.3 Test Cases (User Story Based with Screenshots)</h3>
+
+<ul>
+  <li> <h4> As a user considering the gym, I want to read reviews and testimonials from other members to get insights into their experiences and gauge the overall satisfaction of the gym's community, helping me make a more confident decision about joining.  </h4>
+  <em> Testimonial Page Added : </em> 
+  </li>
+
+![testi](https://github.com/AEmin96/AmperGym/assets/126208272/a14c410d-1b63-453d-85cc-877246648bd5)
+
+  <li> <h4> As a current gym member, I want a user-friendly dashboard where I can log in, view my subscription details, and easily manage my account settings, such as updating personal information or changing my subscription plan, to ensure a seamless experience. </h4>
+  <em> Subscriptions Page Features Easy Uprade & Cancel Membership Interface : </em> 
+  </li>
+
+  ![Screenshot 2024-02-16 at 18 14 00](https://github.com/AEmin96/AmperGym/assets/126208272/82592e3b-6b41-4bfa-a606-0ca17525010a)
+
+ 
+</ul>
+
+<h3>6.4 Validator Testing</h3>
+<h3>HTML Validator</h3>
+
+![Screenshot 2024-02-16 at 18 34 28](https://github.com/AEmin96/AmperGym/assets/126208272/71156a5b-4126-4163-8f2c-fdcbe9d43182)
+
+
+<h3>CSS Validator</h3>
+
+![Screenshot 2024-02-16 at 18 38 32](https://github.com/AEmin96/AmperGym/assets/126208272/5285ee6a-7f1a-4303-828d-1f7d188d195e)
+
+
+
 
 
 <h3>Deployment</h3>
