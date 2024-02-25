@@ -167,10 +167,37 @@
 
 
 <h3>6.4 Fixed Bugs</h3>
-<ul>
-  <li><strong>Bug:</strong> Access Denied for Non-Logged-In Users to Subscriptions Page. <br> <strong>Solution:</strong> The access restriction was lifted by removing the @login_required decorator, enabling non-logged-in users to view the subscriptions page.</li>
-  <li><strong>Bug:</strong> Subscriptions Not Recorded in Database Post-Checkout. <br>  <strong>Solution:</strong> The issue was traced back to a naming conflict within two functions in the same view. Resolving the naming discrepancy corrected the error, ensuring subscriptions are now properly added to the database.</li>
-</ul>
+<table border="1">
+  <tr>
+    <th>Bug</th>
+    <th>Expected Result</th>
+    <th>Actual Result</th>
+    <th>Solution</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>Access Denied for Non-Logged-In Users to Subscriptions Page</td>
+    <td>Non-logged-in users should be able to view the subscriptions page.</td>
+    <td>Non-logged-in users were denied access.</td>
+    <td>The access restriction was lifted by removing the @login_required decorator.</td>
+    <td>Resolved</td>
+  </tr>
+  <tr>
+    <td>Subscriptions Not Recorded in Database Post-Checkout</td>
+    <td>Subscriptions should be added to the database after checkout.</td>
+    <td>Subscriptions were not being recorded in the database.</td>
+    <td>The issue was resolved by correcting a naming conflict within two functions in the same view.</td>
+    <td>Resolved</td>
+  </tr>
+  <tr>
+    <td>Password Auto-save or Wrong Password in Old Password Field Prevents User Info Updates</td>
+    <td>User info should update upon form submission if all required fields are correctly filled.</td>
+    <td>The form would not save any updated info if the old password was auto-saved or incorrect, without providing clear feedback to the user.</td>
+    <td>Added the required attribute for the old password field and implemented modal messages for successful updates or errors.</td>
+    <td>Resolved</td>
+  </tr>
+</table>
+
 
 <h3>Deployment</h3>
 
