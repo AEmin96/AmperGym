@@ -46,7 +46,7 @@
                                 {% endif %}
                                 <h5 class="card-title">{{ subscription.subscription_title }}</h5>
                                 <p class="card-text">{{ subscription.subscription_desc }}</p>
-                                <p class="card-text">£{{ subscription.subscription_price }}/month</p>
+                                <p class="card-text">£{{ subscription.subscription_price|floatformat:2 }}/month</p>
                                 {% if user.is_authenticated %}
                                     {% if subscription.subscription_type == current_subscription %}
                                         <button class="btn btn-secondary" disabled>Subscribed</button>
