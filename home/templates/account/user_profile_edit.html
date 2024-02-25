@@ -71,34 +71,44 @@
 <script>
     $(document).ready(function() {
         $('#confirmSave').click(function(e) {
-            e.preventDefault();
-            var formData = new FormData($('.profile-edit-form')[0]);
-            
+            e.preventDefault(); 
+    
+            var formData = new FormData($('.profile-edit-form')[0]); // Get form data
+    
             $.ajax({
                 type: 'POST',
                 url: '', 
                 data: formData,
-                processData: false,  
-                contentType: false,  
+                processData: false,
+                contentType: false,
+                headers: {
+                    'X-CSRFToken': $('input[name=csrfmiddlewaretoken]').val() 
+                },
                 success: function(response) {
+                    // Success logic
                     $('#messageModalBody').text(response.message);
                     $('#messageModal').modal('show');
+                    // Refresh the page after the modal message has been shown
                     setTimeout(function() {
                         window.location.reload(true);
                     }, 2000);
                 },
-                error: function(xhr, errmsg, err) {
-                    var errors = JSON.parse(xhr.responseText).errors;
-                    var errorMessage = "";
-                    $.each(errors, function(key, value) {
-                        errorMessage += value + "\n";
-                    });
+                error: function(xhr, status, error) {
+                    // Error logic
+                    var response = JSON.parse(xhr.responseText);
+                    var errors = response.errors;
+                    var errorMessage = Object.keys(errors).map(function(key) {
+                        return errors[key];
+                    }).join("\n");
                     $('#messageModalBody').text(errorMessage);
                     $('#messageModal').modal('show');
                 }
             });
+    
+            $('#confirmationModal').modal('hide'); 
         });
     });
     </script>
+    
     
 {% endblock %}
