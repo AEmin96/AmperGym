@@ -9,7 +9,7 @@
       <div id="price-display" class="price-container">
         <h3>{{ subscription.subscription_title }}</h3>
         <p>{{ subscription.subscription_desc }}</p>
-        <h3>Amount to Pay: £ {{ subscription.subscription_price }}</h3>
+        <h3>Amount to Pay: £ {{ subscription.subscription_price|floatformat:2 }}</h3>
       </div>
       <div class="payment-form">
         <div class="form-title">Pay with card</div>
