@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.shortcuts import render,redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -23,13 +24,21 @@ def user_profile_edit(request):
         if user_form.is_valid() and password_form.is_valid():
             user_form.save()
             password_form.save()
-            messages.success(request, 'Your profile and password were successfully updated!')
-            return redirect('user_profile_edit')
+            if request.is_ajax():
+                return JsonResponse({'success': True, 'message': 'Your profile and password were successfully updated!'}, status=200)
+            else:
+                messages.success(request, 'Your profile and password were successfully updated!')
+                return redirect('user_profile_edit')
         else:
-            messages.error(request, 'Please correct the errors below.')
+            errors = {**user_form.errors, **password_form.errors}
+            if request.is_ajax():
+                return JsonResponse({'success': False, 'errors': errors}, status=400)
+            else:
+                messages.error(request, 'Please correct the errors below.')
     else:
         user_form = UserProfileEditForm(instance=request.user)
         password_form = UserPasswordChangeForm(user=request.user)
+    
     return render(request, 'account/user_profile_edit.html', {
         'user_form': user_form,
         'password_form': password_form
