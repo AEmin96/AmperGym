@@ -68,7 +68,9 @@
 <h2>3. Features</h2>
 <ul>
 <li>User-friendly navigation and responsive design.</li>
+  
   ![Screenshot 2024-02-17 at 20 27 31](https://github.com/AEmin96/AmperGym/assets/126208272/769c4a03-8350-43ad-88f8-d4dfdc6d511b)
+  
 <li>Stripe integration for secure payment processing.</li>
 
 <img width="2038" alt="Screenshot 2024-02-25 at 18 46 08" src="https://github.com/AEmin96/AmperGym/assets/126208272/ebcaf220-ff03-48be-8418-c2f60c8edc07">
