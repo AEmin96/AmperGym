@@ -67,56 +67,39 @@
 
 <h2>3. Features</h2>
 <ul>
-<li>User-friendly navigation and responsive design.</li>
-
-  Screens :
-
-<img width="2038" alt="Screenshot 2024-02-25 at 18 50 04" src="https://github.com/AEmin96/AmperGym/assets/126208272/7b194180-980c-46d1-8968-bcc0aa7f34ba">
-
-
-  Mobiles : 
-
-  <img width="430" alt="Screenshot 2024-02-25 at 18 52 35" src="https://github.com/AEmin96/AmperGym/assets/126208272/e4313a0b-4f98-4296-84bd-4680b135a1e1">
-
- 
+  <li><h3>User-friendly navigation and responsive design.</h3>
+    <p>Screens:</p>
+    <img width="2038" alt="Screenshot 2024-02-25 at 18 50 04" src="https://github.com/AEmin96/AmperGym/assets/126208272/7b194180-980c-46d1-8968-bcc0aa7f34ba">
+    <p>Mobiles:</p>
+    <img width="430" alt="Screenshot 2024-02-25 at 18 52 35" src="https://github.com/AEmin96/AmperGym/assets/126208272/e4313a0b-4f98-4296-84bd-4680b135a1e1">
+  </li>
   
-<li>Stripe integration for secure payment processing.</li>
-
-<img width="2038" alt="Screenshot 2024-02-25 at 18 46 08" src="https://github.com/AEmin96/AmperGym/assets/126208272/ebcaf220-ff03-48be-8418-c2f60c8edc07">
-
+  <li><h3>Stripe integration for secure payment processing.</h3>
+    <img width="2038" alt="Screenshot 2024-02-25 at 18 46 08" src="https://github.com/AEmin96/AmperGym/assets/126208272/ebcaf220-ff03-48be-8418-c2f60c8edc07">
+  </li>
   
-<li>Dynamic content for users based on login status.</li>
-
-Non-Logged In User :
-<img width="2038" alt="Screenshot 2024-02-25 at 18 50 04" src="https://github.com/AEmin96/AmperGym/assets/126208272/7b194180-980c-46d1-8968-bcc0aa7f34ba">
-
-
-Logged In User : 
-
-<img width="2038" alt="Screenshot 2024-02-25 at 18 49 56" src="https://github.com/AEmin96/AmperGym/assets/126208272/d6ebc3f5-7577-467c-8910-53cadf6fe834">
-
-
-
-<li>Google Maps API for gym location.</li>
-
-<img width="2038" alt="Screenshot 2024-02-25 at 18 46 52" src="https://github.com/AEmin96/AmperGym/assets/126208272/68b9e64d-5cc3-4bc4-8de8-8305f5d21ccc">
-
-
-<li>Facebook Business Page.</li>
-
-<img width="996" alt="Screenshot 2024-02-25 at 18 47 56" src="https://github.com/AEmin96/AmperGym/assets/126208272/dd26df60-40c0-4488-94c9-a783e80855a5">
-
-
-<li>Testimonial feature for public user feedback.</li>
-
-<img width="2045" alt="Screenshot 2024-02-25 at 18 48 24" src="https://github.com/AEmin96/AmperGym/assets/126208272/7ac82dd1-94ee-49e3-b512-da175cfa9c4e">
-
-
-<li>Personalized user dashboard for subscription and profile management.</li>
-
-<img width="2040" alt="Screenshot 2024-02-25 at 18 49 01" src="https://github.com/AEmin96/AmperGym/assets/126208272/910c5e8f-68ae-4d25-af91-91cae2785bd9">
-
-
+  <li><h3>Dynamic content for users based on login status.</h3>
+    <p>Non-Logged In User:</p>
+    <img width="2038" alt="Screenshot 2024-02-25 at 18 50 04" src="https://github.com/AEmin96/AmperGym/assets/126208272/7b194180-980c-46d1-8968-bcc0aa7f34ba">
+    <p>Logged In User:</p>
+    <img width="2038" alt="Screenshot 2024-02-25 at 18 49 56" src="https://github.com/AEmin96/AmperGym/assets/126208272/d6ebc3f5-7577-467c-8910-53cadf6fe834">
+  </li>
+  
+  <li><h3>Google Maps API for gym location.</h3>
+    <img width="2038" alt="Screenshot 2024-02-25 at 18 46 52" src="https://github.com/AEmin96/AmperGym/assets/126208272/68b9e64d-5cc3-4bc4-8de8-8305f5d21ccc">
+  </li>
+  
+  <li><h3>Facebook Business Page.</h3>
+    <img width="996" alt="Screenshot 2024-02-25 at 18 47 56" src="https://github.com/AEmin96/AmperGym/assets/126208272/dd26df60-40c0-4488-94c9-a783e80855a5">
+  </li>
+  
+  <li><h3>Testimonial feature for public user feedback.</h3>
+    <img width="2045" alt="Screenshot 2024-02-25 at 18 48 24" src="https://github.com/AEmin96/AmperGym/assets/126208272/7ac82dd1-94ee-49e3-b512-da175cfa9c4e">
+  </li>
+  
+  <li><h3>Personalized user dashboard for subscription and profile management.</h3>
+    <img width="2040" alt="Screenshot 2024-02-25 at 18 49 01" src="https://github.com/AEmin96/AmperGym/assets/126208272/910c5e8f-68ae-4d25-af91-91cae2785bd9">
+  </li>
 </ul>
 
 <h2>4. Future Features</h2>
