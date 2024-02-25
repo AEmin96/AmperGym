@@ -2,6 +2,7 @@ from django.http import JsonResponse
 from django.shortcuts import render,redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import update_session_auth_hash
 from .forms import UserProfileEditForm, UserPasswordChangeForm
 
 # Create your views here.
@@ -23,7 +24,11 @@ def user_profile_edit(request):
         password_form = UserPasswordChangeForm(data=request.POST, user=request.user)
         if user_form.is_valid() and password_form.is_valid():
             user_form.save()
-            password_form.save()
+            user = password_form.save()  # Save the form and get the updated user instance
+            
+            # Update session to prevent logging out the user after password change
+            update_session_auth_hash(request, user)
+            
             if request.is_ajax():
                 return JsonResponse({'success': True, 'message': 'Your profile and password were successfully updated!'}, status=200)
             else:
