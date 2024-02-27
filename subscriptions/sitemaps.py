@@ -10,7 +10,7 @@ class SubscriptionSitemap(sitemaps.Sitemap):
         return Subscription.objects.all()
 
     def lastmod(self, obj):
-        return obj.last_modified_date
+        return obj.start_date
 
     def location(self, obj):
         return reverse('subscriptions:subscriptions_view')

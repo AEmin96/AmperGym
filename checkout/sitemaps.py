@@ -7,10 +7,10 @@ class CheckoutSitemap(sitemaps.Sitemap):
     priority = 0.9
 
     def items(self):
-        return Subscription.objects.all()
+        return Checkout.objects.all()
 
     def lastmod(self, obj):
-        return obj.last_modified_date
+        return obj.created_at
 
     def location(self, obj):
-        return reverse('create-checkout-session', args=[str(obj.pk)])
+        return reverse('create-checkout-session')
