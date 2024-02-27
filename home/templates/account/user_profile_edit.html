@@ -5,27 +5,8 @@
 <link rel="stylesheet" href="{% static 'css/user_profile_edit.css' %}">
 <div class="profile-edit-container">
     <h2 class="form-title">Edit Profile</h2>
-    <!-- Message Modal -->
-    <div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
+    <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="messageModalLabel">Profile Update</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body" id="messageModalBody">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Confirmation Modal -->
-    <div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="confirmationModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="confirmationModalLabel">Confirm Changes</h5>
@@ -34,42 +15,34 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    Are you sure you would like to apply those changes?
+                    Are you sure you want to save these changes?
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                    <button type="button" class="btn btn-primary" id="confirmSave">Yes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="confirmSave">Confirm</button>
                 </div>
             </div>
         </div>
     </div>
-    <form method="post" class="profile-edit-form">
+    <form method="post" class="profile-edit-form" id="profileEditForm">
         {% csrf_token %}
         <div class="form-section">
             {{ user_form.as_p }}
+            <button type="button" class="btn btn-primary save-btn">Save Profile</button>
         </div>
         <div class="form-section">
             <h3>Change Password (Optional)</h3>
             <p>If you would like to change your password, enter the new password below. <br> Otherwise, leave "New Password" fields blank.</p>
-            <div>
-                <label for="id_old_password">Old password:</label>
-                <input type="password" name="old_password" id="id_old_password" class="form-control" required>
-            </div>
-            <div>
-                <label for="id_new_password1">New password:</label>
-                <input type="password" name="new_password1" id="id_new_password1" class="form-control" autocomplete="new-password">
-            </div>
-            <div>
-                <label for="id_new_password2">Confirm new password:</label>
-                <input type="password" name="new_password2" id="id_new_password2" class="form-control" autocomplete="new-password">
-            </div>
+            {{ password_form.as_p }}
+            <button type="button" class="btn btn-primary change-password-btn">Change Password</button>
         </div>
-        <button type="button" class="btn btn-primary" id="saveChanges">Save changes</button>
     </form>
 </div>
 
 <script>
     $(document).ready(function() {
+        var formAction = ''; // Track which action is being confirmed
+
         function validateAndHighlight() {
             var isValid = true;
             // Clear previous error messages
@@ -86,70 +59,40 @@
             });
             return isValid;
         }
-    
-        $('#saveChanges').click(function(e) {
-            // Validate fields before showing the confirmation modal
-            if (!validateAndHighlight()) {
-                e.preventDefault(); // Prevent the confirmation modal from showing
-            } else {
-                // If all fields are valid, show the confirmation modal
+
+        // Handle click on save profile button
+        $('.save-btn').click(function() {
+            if (validateAndHighlight()) {
+                formAction = 'save_profile';
                 $('#confirmationModal').modal('show');
             }
         });
-    
-        $('#confirmSave').click(function(e) {
-            e.preventDefault();
-            if (validateAndHighlight()) { 
-                var formData = new FormData($('.profile-edit-form')[0]);
-                $.ajax({
-                    type: 'POST',
-                    url: '', 
-                    data: formData,
-                    processData: false,
-                    contentType: false,
-                    headers: {
-                        'X-CSRFToken': $('input[name=csrfmiddlewaretoken]').val()
-                    },
-                    success: function(response) {
-                        $('#messageModalBody').text(response.message);
-                        $('#messageModal').modal('show');
-                        setTimeout(function() {
-                            window.location.reload(true);
-                        }, 2000);
-                    },
-                    error: function(xhr, status, error) {
-                        var response = JSON.parse(xhr.responseText);
-                        var errors = response.errors;
-                        var customErrorMessage = "";
-    
-                        // Prioritize the old password error message if present
-                        if (errors.old_password) {
-                            customErrorMessage = "Your old password was entered incorrectly. Please enter it again.";
-                        } else if (errors.new_password2) {
-                            // Custom handling for non-matching new passwords
-                            customErrorMessage = "Your new passwords don't match.";
-                        } else {
-                            // Handle other error messages
-                            var errorMessage = Object.keys(errors).map(function(key) {
-                                return errors[key];
-                            }).join(" ");
-                            customErrorMessage = errorMessage;
-                        }
-    
-                        $('#messageModalBody').text(customErrorMessage);
-                        $('#messageModal').modal('show');
-                    }
-                });
-                $('#confirmationModal').modal('hide');
+
+        // Handle click on change password button
+        $('.change-password-btn').click(function() {
+            if (validateAndHighlight()) {
+                formAction = 'change_password';
+                $('#confirmationModal').modal('show');
             }
         });
-    
+
+        // Confirm button in modal
+        $('#confirmSave').click(function() {
+            if (formAction !== '') {
+                $('<input>').attr({
+                    type: 'hidden',
+                    name: 'action',
+                    value: formAction
+                }).appendTo('#profileEditForm');
+                $('#profileEditForm').submit();
+            }
+        });
 
         $('.profile-edit-form').find('input[required], textarea[required], select[required]').on('input', function() {
             $(this).removeClass('is-invalid');
             $(this).next('.error-message').remove(); 
         });
     });
-    </script>
+</script>
 
 {% endblock %}
