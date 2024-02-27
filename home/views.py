@@ -39,9 +39,11 @@ def user_profile_edit(request):
             if password_form.is_valid():
                 user = password_form.save()
                 update_session_auth_hash(request, user)  # Prevents logout
+                request.session['password_change_success'] = True
                 messages.success(request, 'Your password was successfully updated!')
                 return redirect('user_profile_edit')
             else:
+                request.session['password_change_error'] = True
                 messages.error(request, 'Please correct the errors in the password form.')
 
     return render(request, 'account/user_profile_edit.html', {

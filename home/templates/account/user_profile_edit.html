@@ -127,7 +127,7 @@
             var isValid = true;
             // Clear previous error messages
             $('.error-message').remove();
-            var passwordFields = ['#id_old_password', '#id_new_password1', '#id_new_password2']; // Adjust these selectors based on your actual field IDs or classes
+            var passwordFields = ['#id_old_password', '#id_new_password1', '#id_new_password2']; 
     
             passwordFields.forEach(function(field) {
                 var $field = $(field);
@@ -144,24 +144,20 @@
         }
     
         function submitForm(actionValue) {
-            // Append the action input to the form
+            // Set a flag in session storage before submitting the form
+            sessionStorage.setItem('formSubmitted', actionValue);
             $('#profileEditForm').append($('<input>').attr({
                 type: 'hidden',
                 name: 'action',
                 value: actionValue
-            }));
-            // Submit the form
-            $('#profileEditForm').submit();
+            })).submit();
         }
     
         $('.save-btn').click(function() {
             if (validateProfileFields()) {
                 $('#confirmationModal').modal('show');
                 $('#confirmSave').off('click').on('click', function() {
-                    $('#confirmationModal').modal('hide');
                     submitForm('save_profile');
-                    // Simulate successful form submission for demonstration
-                    $('#profileUpdateSuccessModal').modal('show');
                 });
             }
         });
@@ -170,13 +166,20 @@
             if (validatePasswordFields()) {
                 $('#confirmationModal').modal('show');
                 $('#confirmSave').off('click').on('click', function() {
-                    $('#confirmationModal').modal('hide');
                     submitForm('change_password');
-                    // Simulate successful form submission for demonstration
-                    $('#passwordChangeSuccessModal').modal('show');
                 });
             }
         });
+    
+        // Check if the form was submitted before the page was reloaded
+        var formSubmitted = sessionStorage.getItem('formSubmitted');
+        if (formSubmitted === 'save_profile') {
+            $('#profileUpdateSuccessModal').modal('show');
+            sessionStorage.removeItem('formSubmitted'); // Clear the flag
+        } else if (formSubmitted === 'change_password') {
+            $('#passwordChangeSuccessModal').modal('show');
+            sessionStorage.removeItem('formSubmitted'); // Clear the flag
+        }
     
         $('#profileEditForm').find('input, textarea, select').on('input', function() {
             $(this).removeClass('is-invalid');
@@ -184,6 +187,7 @@
         });
     });
     </script>
+    
     
 
 {% endblock %}
