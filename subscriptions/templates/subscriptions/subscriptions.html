@@ -9,59 +9,64 @@
         </div>
 
         <!-- Cancel Subscription Modal -->
-            <div class="modal fade" id="cancelSubscriptionModal" tabindex="-1" role="dialog" aria-labelledby="cancelSubscriptionModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
+        <div class="modal fade" id="cancelSubscriptionModal" tabindex="-1" role="dialog" aria-labelledby="cancelSubscriptionModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                    <h5 class="modal-title" id="cancelSubscriptionModalLabel">Cancel Subscription</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                        <h5 class="modal-title" id="cancelSubscriptionModalLabel">Cancel Subscription</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
                     <div class="modal-body">
-                    Are you sure you want to cancel your subscription?
+                        Are you sure you want to cancel your subscription?
                     </div>
                     <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <a href="{% url 'subscriptions:cancel_subscription' %}" class="btn btn-danger">Cancel Subscription</a>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <a href="{% url 'subscriptions:cancel_subscription' %}" class="btn btn-danger" id="confirmCancelBtn">Cancel Subscription</a>
                     </div>
                 </div>
-                </div>
-            </div>
-  
-
-
-            <div class="row">
-                {% for subscription in subscriptions %}
-                    <div class="col-md-4">
-                        <div class="card text-center">
-                            <div class="card-body">
-                                <!-- Placeholder for icons, assign based on subscription type -->
-                                {% if subscription.subscription_type == 'BA' %}
-                                    <i class="fas fa-dumbbell fa-5x mb-3"></i>
-                                {% elif subscription.subscription_type == 'PR' %}
-                                    <i class="fas fa-heartbeat fa-5x mb-3"></i>
-                                {% elif subscription.subscription_type == 'EL' %}
-                                    <i class="fas fa-star fa-5x mb-3"></i>
-                                {% endif %}
-                                <h5 class="card-title">{{ subscription.subscription_title }}</h5>
-                                <p class="card-text">{{ subscription.subscription_desc }}</p>
-                                <p class="card-text">£{{ subscription.subscription_price|floatformat:2 }}/month</p>
-                                {% if user.is_authenticated %}
-                                    {% if subscription.subscription_type == current_subscription %}
-                                        <button class="btn btn-secondary" disabled>Subscribed</button>
-                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#cancelSubscriptionModal">
-                                            Cancel Subscription
-                                        </button>
-                                    {% else %}
-                                        <a href="{% url 'create-checkout-session' %}?type={{ subscription.subscription_type }}" class="btn btn-primary">Subscribe</a>
-                                    {% endif %}
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
             </div>
         </div>
+  
+        <div class="row">
+            {% for subscription in subscriptions %}
+                <div class="col-md-4">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <!-- Placeholder for icons, assign based on subscription type -->
+                            {% if subscription.subscription_type == 'BA' %}
+                                <i class="fas fa-dumbbell fa-5x mb-3"></i>
+                            {% elif subscription.subscription_type == 'PR' %}
+                                <i class="fas fa-heartbeat fa-5x mb-3"></i>
+                            {% elif subscription.subscription_type == 'EL' %}
+                                <i class="fas fa-star fa-5x mb-3"></i>
+                            {% endif %}
+                            <h5 class="card-title">{{ subscription.subscription_title }}</h5>
+                            <p class="card-text">{{ subscription.subscription_desc }}</p>
+                            <p class="card-text">£{{ subscription.subscription_price|floatformat:2 }}/month</p>
+                            {% if user.is_authenticated %}
+                                {% if subscription.subscription_type == current_subscription %}
+                                    <button class="btn btn-secondary" disabled>Subscribed</button>
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#cancelSubscriptionModal">
+                                        Cancel Subscription
+                                    </button>
+                                {% else %}
+                                    <a href="{% url 'create-checkout-session' %}?type={{ subscription.subscription_type }}" class="btn btn-primary">Subscribe</a>
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
     </div>
+</div>
+
+<script>
+    document.getElementById("confirmCancelBtn").onclick = function() {
+        alert("Successfully Unsubscribed");
+        };
+</script>
+
 {% endblock %}
