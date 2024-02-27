@@ -18,6 +18,8 @@ from django.urls import path, include
 from django.urls import reverse
 from django.conf import settings
 from django.conf.urls.static import static
+from .views import handler404
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,3 +29,5 @@ urlpatterns = [
     path('subscriptions/', include('subscriptions.urls')),
     path('checkout/', include('checkout.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404 = 'ampergym.views.handler404'
