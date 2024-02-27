@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'testimonials',
     'subscriptions',
     'checkout',
-    'corsheaders'
+    'corsheaders',
     'robots',
 ]
 
