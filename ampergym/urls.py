@@ -19,7 +19,7 @@ from django.urls import reverse
 from django.conf import settings
 from django.conf.urls.static import static
 from .views import handler404
-from django.contrib.sitemaps import sitemap
+from django.contrib.sitemaps.views import sitemap
 from testimonials.sitemaps import TestimonialSitemap
 from subscriptions.sitemaps import SubscriptionSitemap, UserSubscriptionSitemap
 from checkout.sitemaps import CheckoutSitemap
