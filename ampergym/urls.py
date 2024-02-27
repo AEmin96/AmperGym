@@ -26,7 +26,7 @@ from checkout.sitemaps import CheckoutSitemap
 
 
 sitemaps = {
-    'testimonals': TestimonialSitemap,
+    'testimonials': TestimonialSitemap,
     'subscription': SubscriptionSitemap,
     'user_subscription': UserSubscriptionSitemap,
     'checkout' : CheckoutSitemap,
