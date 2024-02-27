@@ -1,10 +1,10 @@
-from django.http import JsonResponse
 from django.shortcuts import render,redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import update_session_auth_hash
 from .forms import UserProfileEditForm, UserPasswordChangeForm
-
+from django.urls import reverse
+from django.http import HttpResponseRedirect
 # Create your views here.
 
 def index(request):
@@ -41,7 +41,9 @@ def user_profile_edit(request):
                 update_session_auth_hash(request, user)  # Prevents logout
                 request.session['password_change_success'] = True
                 messages.success(request, 'Your password was successfully updated!')
-                return redirect('user_profile_edit')
+                # Redirect with a query parameter
+                redirect_url = reverse('user_profile_edit') + '?from_change_pass_success=true'
+                return HttpResponseRedirect(redirect_url)
             else:
                 request.session['password_change_error'] = True
                 messages.error(request, 'Please correct the errors in the password form.')
