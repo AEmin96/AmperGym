@@ -20,26 +20,25 @@ def location(request):
 @login_required
 def user_profile_edit(request):
     if request.method == 'POST':
-        user_form = UserProfileEditForm(request.POST, instance=request.user)
-        password_form = UserPasswordChangeForm(data=request.POST, user=request.user)
-        if user_form.is_valid() and password_form.is_valid():
-            user_form.save()
-            user = password_form.save()  # Save the form and get the updated user instance
-            
-            # Update session to prevent logging out the user after password change
-            update_session_auth_hash(request, user)
-            
-            if request.is_ajax():
-                return JsonResponse({'success': True, 'message': 'Your profile and password were successfully updated!'}, status=200)
-            else:
-                messages.success(request, 'Your profile and password were successfully updated!')
+        if 'profile_submit' in request.POST:  # Check if profile update form is submitted
+            user_form = UserProfileEditForm(request.POST, instance=request.user)
+            if user_form.is_valid():
+                user_form.save()
+                messages.success(request, 'Your profile was successfully updated!')
                 return redirect('user_profile_edit')
-        else:
-            errors = {**user_form.errors, **password_form.errors}
-            if request.is_ajax():
-                return JsonResponse({'success': False, 'errors': errors}, status=400)
             else:
-                messages.error(request, 'Please correct the errors below.')
+                messages.error(request, 'Please correct the errors in the profile form.')
+
+        elif 'password_submit' in request.POST:  # Check if password change form is submitted
+            password_form = UserPasswordChangeForm(data=request.POST, user=request.user)
+            if password_form.is_valid():
+                user = password_form.save()
+                update_session_auth_hash(request, user)  # Prevents logout
+                messages.success(request, 'Your password was successfully updated!')
+                return redirect('user_profile_edit')
+            else:
+                messages.error(request, 'Please correct the errors in the password form.')
+
     else:
         user_form = UserProfileEditForm(instance=request.user)
         password_form = UserPasswordChangeForm(user=request.user)
