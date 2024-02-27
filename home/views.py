@@ -19,8 +19,13 @@ def location(request):
 
 @login_required
 def user_profile_edit(request):
+    user_form = UserProfileEditForm(instance=request.user)
+    password_form = UserPasswordChangeForm(user=request.user)
+    
     if request.method == 'POST':
-        if 'profile_submit' in request.POST:  # Check if profile update form is submitted
+        action = request.POST.get('action', '')
+        
+        if action == 'save_profile':
             user_form = UserProfileEditForm(request.POST, instance=request.user)
             if user_form.is_valid():
                 user_form.save()
@@ -29,7 +34,7 @@ def user_profile_edit(request):
             else:
                 messages.error(request, 'Please correct the errors in the profile form.')
 
-        elif 'password_submit' in request.POST:  # Check if password change form is submitted
+        elif action == 'change_password':
             password_form = UserPasswordChangeForm(data=request.POST, user=request.user)
             if password_form.is_valid():
                 user = password_form.save()
@@ -39,10 +44,6 @@ def user_profile_edit(request):
             else:
                 messages.error(request, 'Please correct the errors in the password form.')
 
-    else:
-        user_form = UserProfileEditForm(instance=request.user)
-        password_form = UserPasswordChangeForm(user=request.user)
-    
     return render(request, 'account/user_profile_edit.html', {
         'user_form': user_form,
         'password_form': password_form
