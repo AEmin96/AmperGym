@@ -14,22 +14,22 @@
                 <form method="post" action="{% url 'add_testimonial' %}">
                     {% csrf_token %}
                     <div class="form-group">
-                        <label for="id_name">Name:</label>
-                        <input type="text" name="name" id="id_name" class="form-control" required>
+                        <label for="{{ form.name.id_for_label }}">Name:</label>
+                        <input type="text" name="{{ form.name.name }}" id="{{ form.name.id_for_label }}" class="form-control" value="{{ form.name.value }}">
                     </div>
                     <div class="form-group">
                         <label for="id_content">Content:</label>
-                        <textarea name="content" id="id_content" class="form-control" rows="4" required></textarea>
+                        <textarea name="content" id="id_content" class="form-control" rows="4" required>{{ form.instance.content }}</textarea>
                     </div>
                     <div class="form-group">
                         <label for="id_rating">Rating:</label>
-                            <select name="rating" id="id_rating" class="form-control" required>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
+                        <select name="rating" id="id_rating" class="form-control" required>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit Testimonial</button>
                     <button class="btn btn-danger" onclick="window.location.href='{% url 'testimonials' %}'">Cancel</button>
@@ -38,6 +38,4 @@
         </div>
     </div>
 </div>
-
-
 {% endblock %}

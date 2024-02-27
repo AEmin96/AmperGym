@@ -17,12 +17,13 @@ def add_testimonial_view(request):
             return redirect('testimonials')
     else:
         # If user is authenticated, initialize the form with the name field pre-filled
+        initial_data = {}
         if request.user.is_authenticated:
-            form = TestimonialForm(initial={'name': request.user.username})
-        else:
-            form = TestimonialForm()
+            initial_data['name'] = request.user.username
+        form = TestimonialForm(initial=initial_data)
 
     return render(request, 'testimonials/add_testimonial.html', {'form': form})
+
 
 def testimonial_list_view(request):
     rating_filter = request.GET.get('rating', None)
