@@ -10,10 +10,17 @@ def add_testimonial_view(request):
     if request.method == 'POST':
         form = TestimonialForm(request.POST)
         if form.is_valid():
+            # If user is authenticated, set the name field to the username
+            if request.user.is_authenticated:
+                form.instance.name = request.user.username
             form.save()
             return redirect('testimonials')
     else:
-        form = TestimonialForm()
+        # If user is authenticated, initialize the form with the name field pre-filled
+        if request.user.is_authenticated:
+            form = TestimonialForm(initial={'name': request.user.username})
+        else:
+            form = TestimonialForm()
 
     return render(request, 'testimonials/add_testimonial.html', {'form': form})
 
