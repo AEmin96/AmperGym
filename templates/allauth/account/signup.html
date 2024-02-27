@@ -15,6 +15,13 @@
             <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
                 {% csrf_token %}
                 {{ form.as_p }}
+                
+                <!-- Add the checkbox for subscribing to newsletters -->
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="newsletter_subscription" name="newsletter_subscription">
+                    <label class="form-check-label" for="newsletter_subscription">{% trans "Subscribe to receive our newsletters" %}</label>
+                </div>
+                
                 {% if redirect_field_value %}
                 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
