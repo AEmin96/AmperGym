@@ -127,9 +127,8 @@
             var isValid = true;
             // Clear previous error messages
             $('.error-message').remove();
-            // Assuming your password fields have specific IDs or classes you can target
             var passwordFields = ['#id_old_password', '#id_new_password1', '#id_new_password2']; // Adjust these selectors based on your actual field IDs or classes
-
+    
             passwordFields.forEach(function(field) {
                 var $field = $(field);
                 if ($field.val() === '') {
@@ -140,19 +139,29 @@
                     $field.removeClass('is-invalid');
                 }
             });
-
+    
             return isValid;
-    }
+        }
+    
+        function submitForm(actionValue) {
+            // Append the action input to the form
+            $('#profileEditForm').append($('<input>').attr({
+                type: 'hidden',
+                name: 'action',
+                value: actionValue
+            }));
+            // Submit the form
+            $('#profileEditForm').submit();
+        }
     
         $('.save-btn').click(function() {
             if (validateProfileFields()) {
                 $('#confirmationModal').modal('show');
                 $('#confirmSave').off('click').on('click', function() {
-                    $('#profileEditForm').append($('<input>').attr({
-                        type: 'hidden',
-                        name: 'action',
-                        value: 'save_profile'
-                    })).submit();
+                    $('#confirmationModal').modal('hide');
+                    submitForm('save_profile');
+                    // Simulate successful form submission for demonstration
+                    $('#profileUpdateSuccessModal').modal('show');
                 });
             }
         });
@@ -161,11 +170,10 @@
             if (validatePasswordFields()) {
                 $('#confirmationModal').modal('show');
                 $('#confirmSave').off('click').on('click', function() {
-                    $('#profileEditForm').append($('<input>').attr({
-                        type: 'hidden',
-                        name: 'action',
-                        value: 'change_password'
-                    })).submit();
+                    $('#confirmationModal').modal('hide');
+                    submitForm('change_password');
+                    // Simulate successful form submission for demonstration
+                    $('#passwordChangeSuccessModal').modal('show');
                 });
             }
         });
