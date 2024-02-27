@@ -41,16 +41,13 @@
 
 <script>
     $(document).ready(function() {
-        var formAction = ''; // Track which action is being confirmed
-
-        function validateAndHighlight() {
+        function validateProfileFields() {
             var isValid = true;
             // Clear previous error messages
             $('.error-message').remove();
-            $('.profile-edit-form').find('input[required], textarea[required], select[required]').each(function() {
+            $('#profileEditForm').find('.user-info input[required], .user-info textarea[required], .user-info select[required]').each(function() {
                 if ($(this).val() === '') {
-                    $(this).addClass('is-invalid'); // Highlight fields that are required and empty
-                    // Add an error message directly after the field
+                    $(this).addClass('is-invalid');
                     $('<div class="error-message text-danger">This field is required.</div>').insertAfter($(this));
                     isValid = false;
                 } else {
@@ -59,40 +56,55 @@
             });
             return isValid;
         }
-
-        // Handle click on save profile button
+    
+        function validatePasswordFields() {
+            var isValid = true;
+            // Clear previous error messages
+            $('.error-message').remove();
+            $('#profileEditForm').find('.password-info input[required]').each(function() {
+                if ($(this).val() === '') {
+                    $(this).addClass('is-invalid');
+                    $('<div class="error-message text-danger">This field is required.</div>').insertAfter($(this));
+                    isValid = false;
+                } else {
+                    $(this).removeClass('is-invalid');
+                }
+            });
+            return isValid;
+        }
+    
         $('.save-btn').click(function() {
-            if (validateAndHighlight()) {
-                formAction = 'save_profile';
+            if (validateProfileFields()) {
                 $('#confirmationModal').modal('show');
+                $('#confirmSave').off('click').on('click', function() {
+                    $('#profileEditForm').append($('<input>').attr({
+                        type: 'hidden',
+                        name: 'action',
+                        value: 'save_profile'
+                    })).submit();
+                });
             }
         });
-
-        // Handle click on change password button
+    
         $('.change-password-btn').click(function() {
-            if (validateAndHighlight()) {
-                formAction = 'change_password';
+            if (validatePasswordFields()) {
                 $('#confirmationModal').modal('show');
+                $('#confirmSave').off('click').on('click', function() {
+                    $('#profileEditForm').append($('<input>').attr({
+                        type: 'hidden',
+                        name: 'action',
+                        value: 'change_password'
+                    })).submit();
+                });
             }
         });
-
-        // Confirm button in modal
-        $('#confirmSave').click(function() {
-            if (formAction !== '') {
-                $('<input>').attr({
-                    type: 'hidden',
-                    name: 'action',
-                    value: formAction
-                }).appendTo('#profileEditForm');
-                $('#profileEditForm').submit();
-            }
-        });
-
-        $('.profile-edit-form').find('input[required], textarea[required], select[required]').on('input', function() {
+    
+        $('#profileEditForm').find('input, textarea, select').on('input', function() {
             $(this).removeClass('is-invalid');
-            $(this).next('.error-message').remove(); 
+            $(this).next('.error-message').remove();
         });
     });
-</script>
+    </script>
+    
 
 {% endblock %}
