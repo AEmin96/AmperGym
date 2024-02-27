@@ -39,6 +39,7 @@ urlpatterns = [
     path('testimonials/', include('testimonials.urls')),
     path('subscriptions/', include('subscriptions.urls')),
     path('checkout/', include('checkout.urls')),
+    path('robots.txt/', include('robots.urls')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
