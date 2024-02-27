@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['ampergym-7d2381aee37e.herokuapp.com', '8000-aemin96-ampergym-wj9aogvcwxr.ws-eu108.gitpod.io']
 
