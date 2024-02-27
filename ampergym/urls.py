@@ -22,11 +22,14 @@ from .views import handler404
 from django.contrib.sitemaps.views import sitemap
 from testimonials.sitemaps import TestimonialSitemap
 from subscriptions.sitemaps import SubscriptionSitemap, UserSubscriptionSitemap
+from checkout.sitemaps import CheckoutSitemap
+
 
 sitemaps = {
-    'Testimonals': TestimonialSitemap,
+    'testimonals': TestimonialSitemap,
     'subscription': SubscriptionSitemap,
     'user_subscription': UserSubscriptionSitemap,
+    'checkout' : CheckoutSitemap,
 }
 
 
