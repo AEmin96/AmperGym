@@ -32,8 +32,35 @@
         </div>
         <div class="form-section">
             <h3>Change Password (Optional)</h3>
-            <p>If you would like to change your password, enter the new password below. <br> Otherwise, leave "New Password" fields blank.</p>
-            {{ password_form.as_p }}
+            <p>If you would like to change your password, enter the new password below. Otherwise, leave "New Password" fields blank.</p>
+            {% if password_form.non_field_errors %}
+                <div class="alert alert-danger" role="alert">
+                    {% for error in password_form.non_field_errors %}
+                        {{ error }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <div class="form-group {% if password_form.old_password.errors %}has-error{% endif %}">
+                <label for="id_old_password">Old Password</label>
+                {{ password_form.old_password }}
+                {% for error in password_form.old_password.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+            <div class="form-group {% if password_form.new_password1.errors %}has-error{% endif %}">
+                <label for="id_new_password1">New Password</label>
+                {{ password_form.new_password1 }}
+                {% for error in password_form.new_password1.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+            <div class="form-group {% if password_form.new_password2.errors %}has-error{% endif %}">
+                <label for="id_new_password2">Confirm New Password</label>
+                {{ password_form.new_password2 }}
+                {% for error in password_form.new_password2.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
             <button type="button" class="btn btn-primary change-password-btn">Change Password</button>
         </div>
     </form>
@@ -61,17 +88,22 @@
             var isValid = true;
             // Clear previous error messages
             $('.error-message').remove();
-            $('#profileEditForm').find('.password-info input[required]').each(function() {
-                if ($(this).val() === '') {
-                    $(this).addClass('is-invalid');
-                    $('<div class="error-message text-danger">This field is required.</div>').insertAfter($(this));
+            // Assuming your password fields have specific IDs or classes you can target
+            var passwordFields = ['#id_old_password', '#id_new_password1', '#id_new_password2']; // Adjust these selectors based on your actual field IDs or classes
+
+            passwordFields.forEach(function(field) {
+                var $field = $(field);
+                if ($field.val() === '') {
+                    $field.addClass('is-invalid');
+                    $('<div class="error-message text-danger">This field is required.</div>').insertAfter($field);
                     isValid = false;
                 } else {
-                    $(this).removeClass('is-invalid');
+                    $field.removeClass('is-invalid');
                 }
             });
+
             return isValid;
-        }
+    }
     
         $('.save-btn').click(function() {
             if (validateProfileFields()) {
