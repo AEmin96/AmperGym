@@ -21,14 +21,13 @@ from django.conf.urls.static import static
 from .views import handler404
 from django.contrib.sitemaps.views import sitemap
 from testimonials.sitemaps import TestimonialSitemap
-from subscriptions.sitemaps import SubscriptionSitemap, UserSubscriptionSitemap
+from subscriptions.sitemaps import SubscriptionSitemap
 from checkout.sitemaps import CheckoutSitemap
 
 
 sitemaps = {
     'testimonials': TestimonialSitemap,
     'subscription': SubscriptionSitemap,
-    'user_subscription': UserSubscriptionSitemap,
     'checkout' : CheckoutSitemap,
 }
 

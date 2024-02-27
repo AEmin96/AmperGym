@@ -10,3 +10,6 @@ class TestimonialSitemap(sitemaps.Sitemap):
 
     def lastmod(self, obj):
         return obj.last_modified_date
+
+    def location(self, obj):
+        return reverse('testimonials', args=[str(obj.pk)])
