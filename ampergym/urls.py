@@ -19,6 +19,15 @@ from django.urls import reverse
 from django.conf import settings
 from django.conf.urls.static import static
 from .views import handler404
+from django.contrib.sitemaps.views import sitemap
+from testimonials.sitemaps import TestimonialSitemap
+from subscriptions.sitemaps import SubscriptionSitemap, UserSubscriptionSitemap
+
+sitemaps = {
+    'Testimonals': TestimonialSitemap,
+    'subscription': SubscriptionSitemap,
+    'user_subscription': UserSubscriptionSitemap,
+}
 
 
 urlpatterns = [
@@ -28,6 +37,7 @@ urlpatterns = [
     path('testimonials/', include('testimonials.urls')),
     path('subscriptions/', include('subscriptions.urls')),
     path('checkout/', include('checkout.urls')),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 = 'ampergym.views.handler404'
