@@ -9,6 +9,14 @@
 
 ![Screenshot 2024-02-17 at 20 27 31](https://github.com/AEmin96/AmperGym/assets/126208272/769c4a03-8350-43ad-88f8-d4dfdc6d511b)
 
+<p>In addition to these features, AmperGym incorporates an E-Commerce business model to offer a range of subscription options tailored to different user needs and budgets. Subscriptions are available in three tiers:</p>
+<ul>
+    <li><strong>Basic Subscription:</strong> Access to basic gym facilities and personalized workout plans for £14.00/month.</li>
+    <li><strong>Premium Subscription:</strong> Full access to the gym and premium facilities, including exclusive fitness classes, for £24.00/month.</li>
+    <li><strong>Elite Subscription:</strong> VIP access to all gym facilities and personal trainer sessions for £34.00/month.</li>
+</ul>
+<p>Memberships can be purchased directly on the website, offering users a convenient and secure way to access AmperGym's services. To further enhance our reach and user engagement, AmperGym utilizes targeted advertising on Facebook through a dedicated page. This platform allows us to connect with a broader audience, sharing gym updates, success stories, and exclusive offers. Additionally, users can sign up for our newsletter for the latest deals and gym news, ensuring they never miss out on new opportunities to achieve their fitness goals.</p>
+<p>By integrating these elements, AmperGym aims to provide a comprehensive and accessible service that meets the needs of its users, encouraging a healthy and active lifestyle through a convenient online platform.</p>
 
 
 <h1>Entity & Relationship Diagram</h1>
