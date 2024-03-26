@@ -18,6 +18,14 @@
 <p>Memberships can be purchased directly on the website, offering users a convenient and secure way to access AmperGym's services. To further enhance our reach and user engagement, AmperGym utilizes targeted advertising on Facebook through a dedicated page. This platform allows us to connect with a broader audience, sharing gym updates, success stories, and exclusive offers. Additionally, users can sign up for our newsletter for the latest deals and gym news, ensuring they never miss out on new opportunities to achieve their fitness goals.</p>
 <p>By integrating these elements, AmperGym aims to provide a comprehensive and accessible service that meets the needs of its users, encouraging a healthy and active lifestyle through a convenient online platform.</p>
 
+<h2>Target Audience</h2>
+<p>AmperGym is designed to cater to a diverse range of individuals looking to improve their health and fitness. Our primary target audience includes:</p>
+<ul>
+    <li><strong>Young Professionals:</strong> Busy individuals aged 20-35 who seek flexible gym hours and personalized workout plans to fit their hectic schedules.</li>
+    <li><strong>Fitness Enthusiasts:</strong> Those with a passion for fitness and health, looking for premium facilities and exclusive classes to enhance their workout routine.</li>
+    <li><strong>Individuals Seeking Personalized Training:</strong> People of all ages looking for one-on-one training sessions with professional trainers to achieve specific fitness goals.</li>
+</ul>
+<p>We aim to create an inclusive environment that welcomes members of all fitness levels and backgrounds. Whether you are just starting your fitness journey or are a seasoned athlete, AmperGym offers tailored solutions to help you achieve your health and wellness objectives.</p>
 
 <h1>Entity & Relationship Diagram</h1>
 
