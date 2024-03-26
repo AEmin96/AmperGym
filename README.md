@@ -108,6 +108,10 @@
   <li><h3>Personalized user dashboard for subscription and profile management.</h3>
     <img width="2040" alt="Screenshot 2024-02-25 at 18 49 01" src="https://github.com/AEmin96/AmperGym/assets/126208272/910c5e8f-68ae-4d25-af91-91cae2785bd9">
   </li>
+
+    <li><h3>Identifying users that have signed up for the newsletter in the admin panel for the latest deals and gym news, ensuring they never miss out on new opportunities to achieve their fitness goals.</h3>
+    <img width="1414" alt="Screenshot 2024-03-26 at 20 46 11" src="https://github.com/AEmin96/AmperGym/assets/126208272/33d06117-163d-499c-9144-22337c4c8106">
+  </li>
 </ul>
 
 <h2>4. Future Features</h2>
